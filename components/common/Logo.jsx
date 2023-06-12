@@ -11,7 +11,5 @@ export default function Logo(props) {
         image = <Image src="/MAGMA-white.svg" className="logo-image" alt="logo" layout="fill" sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
     }
 
-    return (
-            <Link href={"/"}>{image}</Link>
-    )
+    return <Link href={"/"} legacyBehavior>{image}</Link>;
 }
