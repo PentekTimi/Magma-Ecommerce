@@ -1,0 +1,105 @@
+
+/* general reused flex style */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* container that adds the padding to the nav */
+.container {
+    padding:  20px min(10%, 120px);
+}
+
+/* DESKTOP STYLES */
+/* logo styles */
+.logo-container {
+    display: block;
+    position: relative;
+    width: 110px;
+    height: 25px;
+}
+
+/* link styles */
+.links {
+    color: black;
+    margin: 0 20px 0;
+}
+
+.shop-link {
+    position: relative;
+    margin-right: 26px;
+}
+
+.arrow {
+    position: absolute;
+    transform: rotate(90deg);
+    width: 6px;
+    top: -105%;
+    right: -40%;
+}
+
+/* icon styles */
+.icon-container {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/* screen sizes over 1240px */
+@media (min-width: 1240px) {
+  .logo-container {
+    width: 130px;
+    height: 35px;
+  }
+
+  .icon-container {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+/* MOBILE STYLES */
+
+.menu-container-mobile {
+    display: block;
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-container-mobile {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.icon-container-mobile:last-child {
+    margin-left: 15px;
+}
+
+@media (max-width: 600px) {
+    .menu-container-mobile {
+        width: 30px;
+        height: 30px;
+    }   
+
+    .logo-container {
+        width: 90px;
+    }
+
+    .icon-container-mobile {
+        width: 25px;
+        height: 25px;
+    }
+
+    .icon-container-mobile:last-child {
+        margin-left: 8px;
+    }
+}

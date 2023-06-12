@@ -1,0 +1,163 @@
+.footer {
+    background-color: #1D1D1D;
+    color: white;
+  }
+
+  .logo-container {
+   display: block;
+   position: relative;
+   width: 100px;
+   height: 30px;
+  }
+
+  /* Sign Up Component */
+  .signUp {
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+  }
+  
+ .input {
+    border: none;
+    padding: 10px;
+    width: 200px;
+    margin-right: 5px;
+    border-radius: 3px;
+ }
+
+ .input::placeholder {
+    font-family: 'Lato', sans-serif;
+    color: #AEAEAE;
+    font-size: 14px;
+    letter-spacing: .03em;
+ }
+
+ .signUpButton{
+    border: none;
+    background-color: #E3E9FC;
+    color: #1D1D1D;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 15px;
+    border-radius: 3px;
+    cursor: pointer;
+ }
+
+ .policyAgreementText {
+    margin-top: .5em;
+    font-size: 12px;
+    font-weight: 400;
+ }
+
+
+ /* Socials Component */
+
+ .socials {
+    margin-bottom: 2.5em;
+
+ }
+
+ .socialIcon {
+    font-size: 35px;
+    margin-right: .75em;
+    color: white;
+    cursor: pointer;
+ }
+
+ /* Links component */
+
+ .navigationLinks {
+    margin-bottom: 3em;
+ }
+
+ .list {
+    margin-bottom: 2.5em;
+ }
+
+ .linksTitle {
+    margin: 0 0 .5em 0;
+    font-size: 18px;
+    font-weight: 700;
+ }
+
+ .link {
+    color: #CFCFCF;
+    line-height: 1.8;
+    cursor: pointer;
+ }
+
+ /* screen sizes below 352px */
+
+ @media (max-width: 352px) {
+
+    .input{
+        width: 145px;
+    }
+
+    .signUpButton {
+        font-size: 12px;
+    }
+ }
+
+ /* screen sizes over 992px */
+
+ @media (min-width: 992px)  {
+
+    .footer {
+        padding-bottom: 5em;
+    }
+
+    .wrap {
+        display: flex;
+    }
+
+    .navigationLinks {
+        display: flex;
+        margin-left: 5em;
+    }
+
+    .list {
+        margin-left: 3em;
+    }
+ }
+
+ /* screen sizes over 1240px */
+
+ @media (min-width: 1240px)  {
+
+    .logo-container {
+        width: 125px;
+        height: 30px;
+    }
+
+    .input {
+        width: 250px;
+        padding: 12px;
+    }
+
+    .signUpButton {
+        padding: 0 20px;
+    }
+
+    .socialIcon {
+        font-size: 42px;
+        margin-top: .25em;
+    }
+
+    .linksTitle {
+        font-size: 21px;
+        margin-bottom: 1em;
+    }
+
+    .link {
+        font-size: 18px;
+        line-height: 2;
+    }
+   
+    .navigationLinks {
+        margin-left: 12em;
+    }
+
+ }
+
+ 
