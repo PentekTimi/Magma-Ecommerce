@@ -16,3 +16,5 @@ const links = [
         route: "/shop/smartwatch-bands"
     }
 ]
+
+export default links;

@@ -27,16 +27,16 @@
 }
 
 .shop-link {
-    position: relative;
-    margin-right: 26px;
+    margin-right: 5px;
+}
+
+.arrowContainer {
+    width: 10px;
+    margin-right: 15px;
 }
 
 .arrow {
-    position: absolute;
     transform: rotate(90deg);
-    width: 6px;
-    top: -105%;
-    right: -40%;
 }
 
 /* icon styles */
@@ -47,6 +47,7 @@
     height: 30px;
     margin-left: 20px;
     cursor: pointer;
+    z-index: 2;
 }
 
 /* screen sizes over 1240px */
@@ -70,7 +71,17 @@
     position: relative;
     width: 45px;
     height: 45px;
+    cursor: pointer;
 }
+
+.openMenu {
+    transform: rotate(90deg);
+}
+
+.closedMenu {
+    transform: rotate(-90deg);
+}
+
 
 .icon-container-mobile {
     display: block;
@@ -102,4 +113,82 @@
     .icon-container-mobile:last-child {
         margin-left: 8px;
     }
+}
+
+
+/* DROPDOWNS */
+/* Desktop Dropdown */
+
+.desktopDropdown {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+}
+
+.fillerContent {
+    width: 100vw;
+    margin-top: -2px;
+    height: 198px;
+    background-color: white;
+    position: absolute;
+    z-index: 0;
+}
+
+.dropdownList {
+    padding: 40px 0 20px;
+    margin-left: 20px;
+}
+
+.dropdownLinks {
+    color: black;
+    line-height: 2.5;
+    font-size: 16.5px;
+}
+
+
+/* Mobile Dropdown */
+
+.hamburgerMenu {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    z-index: 2;
+    padding: 20px min(10%, 120px);
+}
+
+.searchContainer {
+    background-color: #F2F5FC;
+    border-radius: 999px;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
+
+.searchContainer form {
+    justify-content: flex-start;
+}
+
+.searchIconMobile {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.searchInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 80%;
+}
+
+.mobileLinksList {
+    margin-top: 1.5em;
+}
+
+.mobileLinks {
+    color: black;
+    line-height: 2.5;
+    margin-left: 15px;
+    font-size: 20px;
 }

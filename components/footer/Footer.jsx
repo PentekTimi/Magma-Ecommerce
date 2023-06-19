@@ -6,7 +6,7 @@ import FooterStyles from "./footer.module.css";
 
 export default function Footer() {
     return (
-        <footer className={FooterStyles.footer}>
+        <div className={FooterStyles.footer}>
             <div className="container">
 
                 <div className={FooterStyles.wrap}>
@@ -23,6 +23,6 @@ export default function Footer() {
                 </div>
 
             </div>
-        </footer>
+        </div>
     )
 }

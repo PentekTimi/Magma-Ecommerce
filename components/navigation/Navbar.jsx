@@ -3,6 +3,7 @@
 import { useMediaQuery } from "react-responsive"
 import DesktopNavbar from "./DesktopNavbar"
 import MobileNavbar from "./MobileNavbar"
+import ClientOnly from "../common/ClientOnly"
 
 
 export default function Navbar() {
@@ -14,7 +15,9 @@ export default function Navbar() {
     return (
         <div>
             <div>
-                {desktopView ? <DesktopNavbar /> : <MobileNavbar />}
+                <ClientOnly>
+                    {desktopView ? <DesktopNavbar /> : <MobileNavbar />}
+                </ClientOnly>
             </div>
         </div>
     )
