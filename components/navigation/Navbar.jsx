@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive"
 import DesktopNavbar from "./DesktopNavbar"
 import MobileNavbar from "./MobileNavbar"
 import ClientOnly from "../common/ClientOnly"
+import NavbarStyles from "./navigation.module.css"
 
 
 export default function Navbar() {

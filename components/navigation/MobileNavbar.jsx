@@ -16,16 +16,24 @@ export default function MobileNavbar() {
 
         // rotate the hamburger icon when the button gets clicked
         let hamburgerIcon = document.getElementById("hamburgerMenu")
+        let body = document.getElementById("body")
         if (!menu) {
             hamburgerIcon.style.transform = "rotate(90deg)"
+
+            body.style.overflowY = "hidden";
+            // hamburgerIcon.classList.remove(`${NavbarStyles.disabled}`)
+            // hamburgerIcon.classList.add(`${NavbarStyles.active}`)
         } else {
             hamburgerIcon.style.transform = "rotate(180deg)"
+            body.style.overflowY = "visible";
+            // hamburgerIcon.classList.remove(`${NavbarStyles.active}`)
+            // hamburgerIcon.classList.add(`${NavbarStyles.disabled}`)
         }
     }
 
 
     return (
-        <div>
+        <div >
             <div className={NavbarStyles.container}>
                 <div className={NavbarStyles.flex}>
 

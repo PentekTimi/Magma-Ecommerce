@@ -1,4 +1,3 @@
-
 /* general reused flex style */
 .flex {
     display: flex;
@@ -10,6 +9,7 @@
 .container {
     padding:  20px min(10%, 120px);
 }
+
 
 /* DESKTOP STYLES */
 /* logo styles */
@@ -151,11 +151,12 @@
 
 .hamburgerMenu {
     position: absolute;
+    top: 0;
     height: 100vh;
     width: 100vw;
     background-color: white;
-    z-index: 2;
-    padding: 20px min(10%, 120px);
+    z-index: -1;
+    padding: 30% min(10%, 120px) 20px;
 }
 
 .searchContainer {
@@ -192,3 +193,11 @@
     margin-left: 15px;
     font-size: 20px;
 }
+
+/* .active {
+    transform: rotate(90deg);
+}
+
+.disabled {
+    transform: rotate(180deg);
+} */
