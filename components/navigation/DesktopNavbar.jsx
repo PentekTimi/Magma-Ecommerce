@@ -13,9 +13,13 @@ import { useState } from "react";
 export default function DesktopNavbar() {
 
     const [hover, setHover] = useState(false)
+    const [search, setSearch] = useState(false)
 
     const handleHover = () => {setHover(true)}
     const handleLeave = () => {setHover(false)}
+
+    const searchClick = () => {setSearch(true)}
+    const searchExit = () => {setSearch(false)}
 
 
     return (
@@ -23,8 +27,11 @@ export default function DesktopNavbar() {
             <div className={NavbarStyles.container}>
                 <div className={NavbarStyles.flex}>
                     
-                    <div className={NavbarStyles["logo-container"]}>
-                        <Logo color={"black"}/>
+                    <div>
+                        <div className={NavbarStyles["logo-container"]}>
+                            <Logo color={"black"}/>
+                        </div>
+
                     </div>
 
                     <div>
@@ -56,23 +63,48 @@ export default function DesktopNavbar() {
                             </div>
                         }
                     </div>
-
-                    <div className={NavbarStyles.flex}>
-                        <div className={NavbarStyles["icon-container"]}>
-                            <AccountIcon />
-                        </div>
-                        <div className={NavbarStyles["icon-container"]}>
-                            <SearchIcon />
-                        </div>
-                        <div className={NavbarStyles["icon-container"]}>
-                            <CartIcon />
+                    <div>
+                        <div className={NavbarStyles.flex}>
+                            <div className={NavbarStyles["icon-container"]} onClick={searchClick}>
+                                <SearchIcon />
+                            </div>
+                            <div className={NavbarStyles["icon-container"]}>
+                                <AccountIcon />
+                            </div>
+                            <div className={NavbarStyles["icon-container"]}>
+                                <CartIcon />
+                            </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
 
            {hover && <div className={NavbarStyles.fillerContent}></div>}
+           {search && 
+           <div className={NavbarStyles.activeSearchDropdown} onWheel={searchExit}>
+                <div className={NavbarStyles.searchFiller} onMouseEnter={searchClick} onMouseLeave={searchExit}>
+                    <div className={NavbarStyles.flex}>
+                        <div className={NavbarStyles.searchIconMobile}>
+                            <SearchIcon />
+                        </div>
+                        <form>
+                            <input className={NavbarStyles.searchInputDesktop} type="text" name="search" placeholder="Search..."></input>
+                        </form>
+                    </div>
+                    <div className={NavbarStyles.quickLinksContainer}>
+                        <p className={NavbarStyles.quickLinksTitle}>Quick Links</p>
+                        <ul className={NavbarStyles.quickLinksList}>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Phone Cases</Link></li>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Airpod Cases</Link></li>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Delivery and Returns</Link></li>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Faqs</Link></li>
+                        </ul>
+                    </div>
+                </div>
+                <div className={NavbarStyles.backDrop}></div>
+           </div>}
         </div>
     )
 }

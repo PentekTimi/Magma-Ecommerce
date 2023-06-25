@@ -21,13 +21,9 @@ export default function MobileNavbar() {
             hamburgerIcon.style.transform = "rotate(90deg)"
 
             body.style.overflowY = "hidden";
-            // hamburgerIcon.classList.remove(`${NavbarStyles.disabled}`)
-            // hamburgerIcon.classList.add(`${NavbarStyles.active}`)
         } else {
             hamburgerIcon.style.transform = "rotate(180deg)"
             body.style.overflowY = "visible";
-            // hamburgerIcon.classList.remove(`${NavbarStyles.active}`)
-            // hamburgerIcon.classList.add(`${NavbarStyles.disabled}`)
         }
     }
 

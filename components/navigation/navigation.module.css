@@ -10,7 +10,6 @@
     padding:  20px min(10%, 120px);
 }
 
-
 /* DESKTOP STYLES */
 /* logo styles */
 .logo-container {
@@ -45,9 +44,9 @@
     position: relative;
     width: 30px;
     height: 30px;
-    margin-left: 20px;
     cursor: pointer;
     z-index: 2;
+    margin-left: 20px;
 }
 
 /* screen sizes over 1240px */
@@ -129,7 +128,7 @@
 .fillerContent {
     width: 100vw;
     margin-top: -2px;
-    height: 198px;
+    height: 199px;
     background-color: white;
     position: absolute;
     z-index: 0;
@@ -146,6 +145,62 @@
     font-size: 16.5px;
 }
 
+.activeSearchDropdown {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
+.searchFiller {
+    height: 30vh;
+    width: 100%;
+    background-color: white;
+    padding:  50px min(10%, 120px);
+}
+
+.searchFiller .flex {
+    justify-content: flex-start;
+    align-items: normal;
+}
+
+.searchInputDesktop {
+    font-size: 24px;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.searchInputDesktop::placeholder {
+    color: black;
+    opacity: .6;
+}
+
+.quickLinksContainer {
+    padding: 20px 0;
+}
+
+.quickLinksTitle {
+    font-size: 16px;
+}
+
+.quickLinksList {
+    margin-top: .5em;
+}
+
+.quickLinksListItem {
+    color: black;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.backDrop {
+    position: relative;
+    top: 0;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
 
 /* Mobile Dropdown */
 
@@ -156,7 +211,7 @@
     width: 100vw;
     background-color: white;
     z-index: -1;
-    padding: 30% min(10%, 120px) 20px;
+    padding: 20% min(10%, 120px) 20px;
 }
 
 .searchContainer {
@@ -193,11 +248,3 @@
     margin-left: 15px;
     font-size: 20px;
 }
-
-/* .active {
-    transform: rotate(90deg);
-}
-
-.disabled {
-    transform: rotate(180deg);
-} */
