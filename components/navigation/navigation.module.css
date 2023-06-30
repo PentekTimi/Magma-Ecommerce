@@ -128,7 +128,7 @@
 .fillerContent {
     width: 100vw;
     margin-top: -2px;
-    height: 199px;
+    height: 220px;
     background-color: white;
     position: absolute;
     z-index: 0;
@@ -168,7 +168,35 @@
     border: none;
     background: transparent;
     outline: none;
+    position: relative;
 }
+
+/* blinking cursor css */
+@keyframes cursorBlink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .searchFiller form {
+    position: relative;
+  }
+
+  .cursor {
+    position: absolute;
+    left: .5px;
+    width: 1px;
+    height: 1.65em;
+    background-color: #000;
+    animation: cursorBlink 1s infinite;
+  }
+
 
 .searchInputDesktop::placeholder {
     color: black;
@@ -193,6 +221,7 @@
     line-height: 1.5;
 }
 
+/* search dropdown blur bg */
 .backDrop {
     position: relative;
     top: 0;

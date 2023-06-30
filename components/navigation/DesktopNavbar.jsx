@@ -21,6 +21,13 @@ export default function DesktopNavbar() {
     const searchClick = () => {setSearch(true)}
     const searchExit = () => {setSearch(false)}
 
+    const removeCursor = () => {
+        let cursor = document.getElementById("cursor")
+        cursor.classList.remove(`${NavbarStyles.cursor}`)
+    }
+
+
+    // on fcus remove cursor- out focus add it back?
 
     return (
         <div>
@@ -90,16 +97,17 @@ export default function DesktopNavbar() {
                             <SearchIcon />
                         </div>
                         <form>
-                            <input className={NavbarStyles.searchInputDesktop} type="text" name="search" placeholder="Search..."></input>
+                            <input className={NavbarStyles.searchInputDesktop} onFocus={removeCursor} autoComplete="off" type="text" name="search" placeholder="Search..."></input>
+                            <span id="cursor" className={NavbarStyles.cursor}></span>
                         </form>
                     </div>
                     <div className={NavbarStyles.quickLinksContainer}>
                         <p className={NavbarStyles.quickLinksTitle}>Quick Links</p>
                         <ul className={NavbarStyles.quickLinksList}>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Phone Cases</Link></li>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Airpod Cases</Link></li>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Delivery and Returns</Link></li>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/"}>Faqs</Link></li>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/shop/phone-cases"}>Phone Cases</Link></li>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/shop/airpods-cases"}>Airpods Cases</Link></li>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/delivery-and-returns"}>Delivery and Returns</Link></li>
+                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/faq"}>Faq</Link></li>
                         </ul>
                     </div>
                 </div>

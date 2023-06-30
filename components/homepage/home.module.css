@@ -1,0 +1,134 @@
+/* general styles */
+.container {
+    padding:  20px min(10%, 120px);
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+/* homepage */
+
+.landingWrapper {
+    background-color: #F3F5FC;
+    padding-top: 10px;
+}
+
+/* restrict img container with max width and max height, so that the image stops growing after some viewport size */
+.landingImgContainer {
+    max-height: 700px;
+    max-width: 880px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.landingImg {
+    display: block;
+    object-fit: cover;
+}
+
+.landingCopyWrapper {
+    text-align: center;
+    padding:  20px min(10%, 120px) 60px;
+}
+
+.landingHeading {
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+.landingCTAs {
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.exploreBtn {
+    font-size: 1rem;
+    letter-spacing: .5px;
+    font-family: "Lato", "sans-serif";
+    border: none;
+    border-radius: 10px;
+    background-color: #1D1D1D;
+    color: white;
+    padding: .5rem 1.95rem;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.categoryLink {
+    color: black;
+    font-size: 1rem;
+    /* cursor: pointer; */
+}
+
+.arrowContainer {
+    width: 6px;
+    margin-left: 6px;
+    margin-top: 2px;
+}
+
+/* screen sizes below 352px */
+@media (max-width: 352px) {}
+
+/* screen sizes below 600px */
+@media (max-width: 600px) {}
+
+/* screen sizes above 600px */
+@media (min-width: 600px) {
+    .landingHeading {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+}
+
+/* screen sizes above 992px */
+@media (min-width: 992px)  {
+
+    .desktopView {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 0px;
+    }
+
+    .landingImgContainer {
+        overflow: hidden;
+        flex: 2 1 0;
+    }
+
+    .landingCopyWrapper {
+        flex: 1 1 0;
+        text-align: left;
+        padding: 0;
+        padding-right: min(10%, 120px);
+        margin-bottom: 80px;
+    }
+
+    .landingHeading {
+        font-size: 1.8rem;
+    }
+
+    .landingCTAs {
+        justify-content: flex-start;
+    }
+
+    .exploreBtn {
+        margin-left: 0;
+    }
+    
+}
+
+/* screen sizes above 1240px */
+@media (min-width: 1240px) {
+
+    .landingCopyWrapper {
+        margin-bottom: 120px;
+    }
+
+    .landingHeading {
+        font-size: 2.25rem;
+    }
+
+
+}
