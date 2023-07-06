@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-/* homepage */
+/* Home.jsx*/
 
 .landingWrapper {
     background-color: #F3F5FC;
@@ -68,8 +68,210 @@
     margin-top: 2px;
 }
 
+
+/* Ribbon.jsx */
+
+.ribbon {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 1rem;
+    background-color: #1D1D1D;
+    padding: .5rem 0;
+    /* margin-bottom: 20px; */
+}
+
+.ribbonContent {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 1rem;
+    animation: ribbonScroll 40s linear infinite;
+}
+
+.ribbonText {
+    color: white;
+    font-weight: 300;
+}
+
+@keyframes ribbonScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 1rem));
+    }
+  }
+
+
+/* categoryShop.jsx */
+
+.categorySection {
+    background-color: #F5F5F5;
+}
+
+.categoryWrap {
+    max-width: 1620px;
+    margin: 0 auto;
+}
+
+.categoryTitle {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.dualCategoryWrapper {
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 2rem 0;
+}
+
+.iphoneImgContainer {
+    height: 137px;
+    width: 136px;
+}
+
+.airpodsImgContainer {
+    height: 137px;
+    width: 73px;
+    margin-left: 15px;
+}
+
+.watchImgContainer {
+    height: 105px;
+    width: 109px;
+}
+
+.laptopImgContainer {
+    height: 137px;
+    width: 161px;
+    margin-left: 20px;
+}
+
+.categoryText {
+    text-align: center;
+    margin-top: 1rem;
+    color: black;
+}
+
+.phoneText {
+    text-align: left;
+}
+
+.laptopText {
+    margin-left: 15px;
+}
+
+
+/* Banner.jsx */
+
+.bannerSection {
+    margin-top: 1rem;
+}
+
+.bannerImgContainer {
+    max-height: 513px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.bannerContent {
+    background-color: #F3F5FC;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.bannerTitle {
+    margin: 1rem;
+}
+
+.releaseDate {
+    font-size: .75rem;
+}
+
+.promotionTime {
+    color: #777272;
+}
+
+.bannerInputWrapper {
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.bannerInput {
+    border: none;
+    background-color: white;
+    padding: .6rem 2rem;
+    border-radius: 7px 0 0 7px;
+}
+
+.bannerInput::placeholder {
+    font-family: "Lato";
+    font-size: 1rem;
+    color: #CDCDCD;
+    letter-spacing: .5px;
+}
+
+.bannerBtn {
+    border: none;
+    background-color: #1D1D1D;
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 1rem;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 0 7px 7px 0;
+    letter-spacing: .5px;
+    cursor: pointer;
+}
+
 /* screen sizes below 352px */
-@media (max-width: 352px) {}
+@media (max-width: 360px) {
+    .categoryText {
+        font-size: 12px;
+    }
+
+    .phoneText {
+        margin-left: 10px;
+    }
+
+    .airpodsText {
+        margin-left: 10px;
+    }
+
+    .watchText {
+        margin-left: 10px;
+    }
+
+    .laptopText {
+        margin-left: 10px;
+    }
+
+    .laptopImgContainer {
+        height: 123px;
+        width: 141px;
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 436px) {
+    .bannerInputWrapper {
+        display: block;
+    }
+
+    .bannerInput {
+        border-radius: 7px;
+    }
+
+    .bannerBtn {
+        border-radius: 7px;
+        margin-top: .5rem;
+        font-size: .9rem;
+    }
+
+}
 
 /* screen sizes below 600px */
 @media (max-width: 600px) {}
@@ -79,6 +281,48 @@
     .landingHeading {
         font-size: 2rem;
         line-height: 1.4;
+    }
+
+    .categoryTitle {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .iphoneImgContainer {
+        height: 270px;
+        width: 268px;
+    }
+    
+    .airpodsImgContainer {
+        height: 270px;
+        width: 144px;
+    }
+    
+    .watchImgContainer {
+        height: 207px;
+        width: 215px;
+    }
+    
+    .laptopImgContainer {
+        height: 250px;
+        width: 290px;
+        margin-left: 40px;
+    }
+
+    .phoneText {
+        margin-left: 45px;
+    }
+
+    .watchText {
+        margin-left: 25px;
+    }
+
+    .bannerContent {
+        padding: 3rem 0;
+    }
+
+    .bannerTitle {
+        font-size: 1.5rem;
     }
 }
 
@@ -116,6 +360,46 @@
     .exploreBtn {
         margin-left: 0;
     }
+
+    .categoryDesktopView {
+        display: flex;
+        justify-content: space-around;
+        padding: 3rem 0;
+    }
+
+    .dualCategoryWrapper {
+        justify-content: space-around;
+        flex-grow: 1;
+    }
+
+    .dualCategoryWrapper:last-of-type {
+        margin-left: 15px;
+    }
+
+    .airpodsText {
+        margin-left: 15px;
+    }
+
+    .watchText {
+        margin-left: 50px;
+    }
+
+    .bannerDesktopView {
+        display: flex;
+        align-items: center;
+        background-color: #F3F5FC;
+    }
+
+    .bannerImgContainer {
+        height: 350px;
+        width: 600px;
+        order: 2;
+        /* max-height: 613px; */
+    }
+
+    .bannerContent {
+        flex-grow: 2;
+    }
     
 }
 
@@ -128,6 +412,11 @@
 
     .landingHeading {
         font-size: 2.25rem;
+    }
+
+    .bannerImgContainer {
+        height: 450px;
+        width: 800px;
     }
 
 
