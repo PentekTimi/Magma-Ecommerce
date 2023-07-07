@@ -1,6 +1,6 @@
 /* general styles */
 .container {
-    padding:  20px min(10%, 120px);
+    padding: 20px min(10%, 120px);
 }
 
 .flex {
@@ -227,6 +227,53 @@
     cursor: pointer;
 }
 
+/* SocialProof.jsx */
+
+.socialProofCopy {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.socialProofTitle {
+    font-size: 21px;
+}
+
+.socialProofSubtitle {
+    font-size: 14px;
+}
+
+.singleSocialImgContainer {
+    margin: .5rem 0;
+}
+
+.mainImgContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    margin-bottom: .5rem;
+    max-width: 615px;
+}
+
+.secondarySocialImgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondaryImgContainer {
+    width: 100%;
+    height: 100%;
+    max-width: 305px;
+}
+
+.secondaryImgContainer:first-child {
+    margin-right: .25rem;
+}
+
+.secondaryImgContainer:last-child {
+    margin-left: .25rem;
+}
+
 /* screen sizes below 352px */
 @media (max-width: 360px) {
     .categoryText {
@@ -400,7 +447,42 @@
     .bannerContent {
         flex-grow: 2;
     }
+
+    .socialProofContainer {
+        margin: 20px min(10%, 120px);
+    }
+
+    .socialProofTitle {
+        font-size: 28px;
+    }
     
+    .socialImgContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 1260px;
+        margin: 0 auto;
+    }
+
+    .singleSocialImgContainer {
+        flex-grow: 1;
+    }
+
+    .singleSocialImgContainer:first-child {
+        margin-right: .25rem;
+    }
+
+    .singleSocialImgContainer:last-child {
+        margin-left: .25rem;
+    }
+
+    .mainImgContainer {
+        height: 100%;
+    }
+
+    .secondaryImgContainer {
+        height: 100%;
+    }
 }
 
 /* screen sizes above 1240px */
