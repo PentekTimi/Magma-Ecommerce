@@ -1,19 +1,22 @@
 import Link from "next/link";
+import BestSellerCarousel from "./BestSellerCarousel";
+import homePageStyles from "./home.module.css";
 
 export default function ExploreBest() {
+
     return (
-        <div>
-            <div>
-                <div>
-                    <h2>Explore Best Sellers</h2>
-                    <p>Shop the most loved selection of phone cases from all time.</p>
+        <div className={homePageStyles.bestSellers}>
+            <div className={homePageStyles.container}>
+                <div className={homePageStyles.bestSellersCopy}>
+                    <h2 className={homePageStyles.bestSellersTitle}>Explore Best Sellers</h2>
+                    <p className={homePageStyles.bestSellerSubtitle}>Shop the most loved selection of phone cases from all time.</p>
                 </div>
-                <div>
-                    interactive part
+                <div className={homePageStyles.bestSellersCarousel}>
+                    <BestSellerCarousel />
                 </div>
-                <div>
+                <div className={homePageStyles.bestSellerCTA}>
                     <Link href={"/"}>
-                        <button>Shop now</button>
+                        <button className={homePageStyles.bestSellersBtn}>See more</button>
                     </Link>
                 </div>
             </div>

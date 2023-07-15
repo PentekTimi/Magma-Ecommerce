@@ -1,3 +1,5 @@
+
+
 /* general styles */
 .container {
     padding: 20px min(10%, 120px);
@@ -274,6 +276,89 @@
     margin-left: .25rem;
 }
 
+
+/* Best sellers */
+
+.bestSellers {
+    padding: 1rem 0 4rem;
+}
+
+.bestSellersCopy {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.bestSellerSubtitle {
+    margin-top: .25rem;
+    font-size: 12px;
+}
+
+.bestSellerCTA {
+    text-align: center;
+}
+
+.bestSellersBtn {
+    cursor: pointer;
+    font-family: "Lato", "sans-serif";
+    letter-spacing: .5px;
+    background-color: #FD786A;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    padding: .5rem 1rem;
+    margin-top: 2rem;
+}
+
+.bestSellersArrow {
+    width: 10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+}
+
+.rightArrow {
+    right: 0%;
+    top: 35%;
+}
+
+.leftArrow {
+    left: 0%;
+    top: 35%;
+    transform: rotate(180deg);
+}
+
+.carousel {
+    margin: 0 auto;
+}
+
+.bestSellersImgContainer {
+    position: relative;
+    margin: 0 auto;
+    width: 85px;
+    height: 172px;
+    transform: scale(0.7);
+    transition: transform 300ms;
+}
+
+.activeImg {
+    transform: scale(1);
+}
+
+.carouselItemsCopy {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: "Lato", "sans-serif";
+    font-weight: 700;
+}
+
+.carouselItemPrice {
+    font-size: 14px;
+    margin-top: .25rem;
+}
+
+
+
+
 /* screen sizes below 352px */
 @media (max-width: 360px) {
     .categoryText {
@@ -318,10 +403,25 @@
         font-size: .9rem;
     }
 
+    .carousel {
+        max-width: 200px;
+    }
+
+}
+
+@media (min-width: 436px) {
+    .bestSellersImgContainer {
+        width: 107px;
+        height: 217px;
+    }
 }
 
 /* screen sizes below 600px */
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+    .carousel {
+        max-width: 300px;
+    }
+}
 
 /* screen sizes above 600px */
 @media (min-width: 600px) {
@@ -370,6 +470,16 @@
 
     .bannerTitle {
         font-size: 1.5rem;
+    }
+
+    .carousel {
+        max-width: 600px;
+        margin-bottom: 2rem;
+    }
+
+    .bestSellersImgContainer {
+        width: 126px;
+        height: 254px;
     }
 }
 
@@ -441,7 +551,6 @@
         height: 350px;
         width: 600px;
         order: 2;
-        /* max-height: 613px; */
     }
 
     .bannerContent {
@@ -483,6 +592,23 @@
     .secondaryImgContainer {
         height: 100%;
     }
+
+    .bestSellersCopy {
+        margin-bottom: 6rem;
+    }
+
+    .carousel {
+        max-width: 900px;
+    }
+
+    .bestSellersTitle {
+        font-size: 2rem;
+    }
+
+    .bestSellersImgContainer {
+        width: 182px;
+        height: 367px;
+    }
 }
 
 /* screen sizes above 1240px */
@@ -503,3 +629,6 @@
 
 
 }
+
+
+
