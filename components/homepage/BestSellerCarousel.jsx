@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from "next/legacy/image";
+import Link from "next/link";
 import arrow from "../../public/arrow.svg";
 import homePageStyles from "./home.module.css";
 import Slider from "react-slick";
@@ -68,10 +69,12 @@ export default function BestSellerCarousel () {
                             <div className={idx === imageIndex ? `${homePageStyles.bestSellersImgContainer} ${homePageStyles.activeImg}`: `${homePageStyles.bestSellersImgContainer}`}>
                                 <Image src={item.src} alt={item.name} layout='fill'/>
                             </div>
-                            <div className={homePageStyles.carouselItemsCopy}>
-                                <p className={homePageStyles.carouselItemName}>{item.name}</p>
-                                <p className={homePageStyles.carouselItemPrice}>£{item.price}</p>
-                            </div>
+                            <Link href={"/shop/"} className={homePageStyles.carouselCopy}>
+                                <div className={homePageStyles.carouselItemsCopy}>
+                                    <p className={homePageStyles.carouselItemName}>{item.name}</p>
+                                    <p className={homePageStyles.carouselItemPrice}>£{item.price}</p>
+                                </div>
+                            </Link>
                         </div> 
                         )
                     })}

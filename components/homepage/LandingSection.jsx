@@ -16,7 +16,7 @@ export default function LandingSection() {
                     <div className={`${homePageStyles.flex} ${homePageStyles.landingCTAs}`}>
                         <Link href={"/"}><button className={homePageStyles.exploreBtn}>Explore</button></Link>
                         
-                        <Link href={"/"} className={homePageStyles.flex}>
+                        <Link href={"/"} className={`${homePageStyles.flex} ${homePageStyles.categoryLinkContainer}`}>
                             <span className={homePageStyles.categoryLink} href={"/"}>Shop by Category</span>
                             <div className={homePageStyles.arrowContainer}>
                                 <Image src={arrow} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"/>

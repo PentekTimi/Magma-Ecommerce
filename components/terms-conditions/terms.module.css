@@ -1,0 +1,32 @@
+.container {
+    padding: 20px min(10%, 120px);
+}
+
+.titleContainer {
+    background-color: #F3F5FC;
+}
+
+.titleContainer .container {
+    padding: 40px min(10%, 120px);
+}
+
+.title {
+    font-size: 30px;
+}
+
+.updateData {
+    color: #1d1d1d;
+    font-size: 14px;
+}
+
+.legalSections {
+    margin: 2rem 0;
+}
+
+.legalSections h3 {
+    margin-bottom: .5rem;
+}
+
+.legalSections p {
+    line-height: 1.3;
+}

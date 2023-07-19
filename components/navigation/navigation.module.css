@@ -25,6 +25,10 @@
     margin: 0 20px 0;
 }
 
+.saleLink {
+    color: #FD786A;
+}
+
 .shop-link {
     margin-right: 5px;
 }
@@ -276,4 +280,8 @@
     line-height: 2.5;
     margin-left: 15px;
     font-size: 20px;
+}
+
+.saleLinkMobile {
+    color: #FD786A;
 }

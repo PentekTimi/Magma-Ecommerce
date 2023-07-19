@@ -86,6 +86,11 @@
     cursor: pointer;
  }
 
+ .link:hover {
+    color: white;
+    transition: color 300ms;
+ }
+
  /* screen sizes below 352px */
 
  @media (max-width: 352px) {

@@ -58,16 +58,27 @@
     cursor: pointer;
 }
 
+.exploreBtn:hover {
+    background-color: black;
+    color: white;
+}
+
 .categoryLink {
     color: black;
     font-size: 1rem;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
 .arrowContainer {
     width: 6px;
     margin-left: 6px;
     margin-top: 2px;
+    transition: width 300ms;
+}
+
+.categoryLink:hover + .arrowContainer {
+    width: 7px;
+    transition: width 300ms;
 }
 
 
@@ -133,28 +144,44 @@
 .iphoneImgContainer {
     height: 137px;
     width: 136px;
+    transform: scale(1);
+    transition: transform 200ms;
 }
+
 
 .airpodsImgContainer {
     height: 137px;
     width: 73px;
     margin-left: 15px;
+    transform: scale(1);
+    transition: transform 200ms;
 }
 
 .watchImgContainer {
     height: 105px;
     width: 109px;
+    transform: scale(1);
+    transition: transform 200ms;
 }
 
 .laptopImgContainer {
     height: 137px;
     width: 161px;
     margin-left: 20px;
+    transform: scale(1);
+    transition: transform 200ms;
 }
 
+.iphoneImgContainer:hover,
+.watchImgContainer:hover,
+.laptopImgContainer:hover,
+.airpodsImgContainer:hover {
+    transform: scale(1.1);
+    transition: transform 200ms;
+}
 .categoryText {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     color: black;
 }
 
@@ -227,6 +254,10 @@
     border-radius: 0 7px 7px 0;
     letter-spacing: .5px;
     cursor: pointer;
+}
+
+.bannerBtn:hover {
+    background-color: black;
 }
 
 /* SocialProof.jsx */
@@ -309,6 +340,10 @@
     margin-top: 2rem;
 }
 
+.bestSellersBtn:hover {
+    background-color: #f37062;
+}
+
 .bestSellersArrow {
     width: 10px;
     cursor: pointer;
@@ -349,14 +384,13 @@
     margin-top: 1rem;
     font-family: "Lato", "sans-serif";
     font-weight: 700;
+    color: #1D1D1D;
 }
 
 .carouselItemPrice {
     font-size: 14px;
     margin-top: .25rem;
 }
-
-
 
 
 /* screen sizes below 352px */

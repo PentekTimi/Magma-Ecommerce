@@ -66,7 +66,7 @@ export default function MobileNavbar() {
                             </li>
                         )
                     })}
-                    <li><Link href={"/sale"} className={NavbarStyles.mobileLinks}>Sale</Link></li>
+                    <li><Link href={"/sale"} className={`${NavbarStyles.mobileLinks} ${NavbarStyles.saleLinkMobile}`}>Sale</Link></li>
                     <li><Link href={"/about"} className={NavbarStyles.mobileLinks}>About</Link></li>
                 </ul>
 

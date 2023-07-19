@@ -52,7 +52,7 @@ export default function DesktopNavbar() {
                                     </div>
                                 </div>
                             </li>
-                            <li><Link href={"/sale"} className={NavbarStyles.links}>Sale</Link></li>
+                            <li><Link href={"/sale"} className={`${NavbarStyles.links} ${NavbarStyles.saleLink}`}>Sale</Link></li>
                             <li><Link href={"/about"} className={NavbarStyles.links}>About</Link></li>
                         </ul>
 
