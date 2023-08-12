@@ -43,7 +43,7 @@ export default function DesktopNavbar() {
 
                     <div>
                         <ul className={NavbarStyles.flex}>
-                            <li><Link href={"/new-in"} className={NavbarStyles.links}>New In</Link></li>
+                            <li><Link prefetch={false} href={"/new-in"} className={NavbarStyles.links}>New In</Link></li>
                             <li>
                                 <div className={NavbarStyles.flex} onMouseEnter={handleHover} onMouseLeave={handleLeave}>
                                     <p className={`${NavbarStyles["links"]} ${NavbarStyles["shop-link"]}`}>Shop</p>
@@ -52,8 +52,8 @@ export default function DesktopNavbar() {
                                     </div>
                                 </div>
                             </li>
-                            <li><Link href={"/sale"} className={`${NavbarStyles.links} ${NavbarStyles.saleLink}`}>Sale</Link></li>
-                            <li><Link href={"/about"} className={NavbarStyles.links}>About</Link></li>
+                            <li><Link prefetch={false} href={"/sale"} className={`${NavbarStyles.links} ${NavbarStyles.saleLink}`}>Sale</Link></li>
+                            <li><Link prefetch={false} href={"/about"} className={NavbarStyles.links}>About</Link></li>
                         </ul>
 
                         {hover && 
@@ -62,7 +62,7 @@ export default function DesktopNavbar() {
                                         {links.map((menuItem, index) => {
                                             return (
                                                 <li key={index}>
-                                                    <Link href={menuItem.route} className={NavbarStyles.dropdownLinks}>{menuItem.name}</Link>
+                                                    <Link prefetch={false} href={menuItem.route} className={NavbarStyles.dropdownLinks}>{menuItem.name}</Link>
                                                 </li>
                                             )
                                         })}
@@ -104,10 +104,10 @@ export default function DesktopNavbar() {
                     <div className={NavbarStyles.quickLinksContainer}>
                         <p className={NavbarStyles.quickLinksTitle}>Quick Links</p>
                         <ul className={NavbarStyles.quickLinksList}>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/shop/phone-cases"}>Phone Cases</Link></li>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/shop/airpods-cases"}>Airpods Cases</Link></li>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/delivery-and-returns"}>Delivery and Returns</Link></li>
-                            <li><Link className={NavbarStyles.quickLinksListItem} href={"/faq"}>Faq</Link></li>
+                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/shop/phone-cases"}>Phone Cases</Link></li>
+                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/shop/airpods-cases"}>Airpods Cases</Link></li>
+                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/delivery-and-returns"}>Delivery and Returns</Link></li>
+                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/faq"}>Faq</Link></li>
                         </ul>
                     </div>
                 </div>

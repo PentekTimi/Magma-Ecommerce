@@ -58,16 +58,16 @@ export default function MobileNavbar() {
             <div className={NavbarStyles.hamburgerMenu}>
                 <SearchBar />
                 <ul className={NavbarStyles.mobileLinksList}>
-                    <li><Link href={"/new-in"} className={NavbarStyles.mobileLinks}>New In</Link></li>
+                    <li><Link prefetch={false} href={"/new-in"} className={NavbarStyles.mobileLinks}>New In</Link></li>
                     {links.map((menuItem, index) => {
                         return (
                             <li key={index}>
-                                <Link href={menuItem.route} className={NavbarStyles.mobileLinks}>{menuItem.name}</Link>
+                                <Link prefetch={false} href={menuItem.route} className={NavbarStyles.mobileLinks}>{menuItem.name}</Link>
                             </li>
                         )
                     })}
-                    <li><Link href={"/sale"} className={`${NavbarStyles.mobileLinks} ${NavbarStyles.saleLinkMobile}`}>Sale</Link></li>
-                    <li><Link href={"/about"} className={NavbarStyles.mobileLinks}>About</Link></li>
+                    <li><Link prefetch={false} href={"/sale"} className={`${NavbarStyles.mobileLinks} ${NavbarStyles.saleLinkMobile}`}>Sale</Link></li>
+                    <li><Link prefetch={false} href={"/about"} className={NavbarStyles.mobileLinks}>About</Link></li>
                 </ul>
 
             </div>}
