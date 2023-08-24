@@ -7,10 +7,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useMediaQuery } from "react-responsive"
 import ClientOnly from "../common/ClientOnly";
+import { useCartContext } from "@/app/context/cartStore";
 
 export default function SingleProduct({product}) {
 
+    const [qty, setQty] = useState(1)
     const [activeImg, setActiveImg] = useState(0)
+    // retrieve global values from context
+    const {cartItems, setCartItems, totalQty, setTotalQty} = useCartContext()
 
     product = JSON.parse(product)
     product = product[0]
@@ -28,7 +32,6 @@ export default function SingleProduct({product}) {
       };
 
     let modelTypes = [];
-
     switch(product.category) {
         case "laptop":
             modelTypes = ["Macbook Air 13.6", "Macbook Pro 13.3", "Macbook Pro 13", "Macbook Pro 16", "Macbook Pro 14", "Macbook Pro 15", "Macbook Air 15"]
@@ -44,11 +47,71 @@ export default function SingleProduct({product}) {
             break;
     }
 
-    // product
+    
+
+    // product instance
     // [{"_id":"646f22f4044458c8600c3583","name":"cleo","description":"ethereal blossom print","price":40,
     // "images":["https://storage.googleapis.com/magma-bucket/macbook-case/cleo_front.jpg","https://storage.googleapis.com/magma-bucket/macbook-case/cleo_side.jpg","https://storage.googleapis.com/magma-bucket/macbook-case/cleo_closed.jpg","https://storage.googleapis.com/magma-bucket/macbook-case/cleo_layers.jpg"],
     // "releaseDate":"2023-07-12","bestSeller":true,"category":"laptop","onSale":false,"salePrice":32.99}]
-    console.log(product.images[0])
+
+    function addToCart () {
+        
+        // update totalQuantity for cart icon
+        setTotalQty(prevValue => prevValue + qty)
+
+        // check if the item added to cart already exists in the cart
+        const checkProductsInCart = cartItems.find((cartItem) => cartItem.productID === product._id)
+        const selectedModel = (document.querySelector("#model")).value
+        
+        // if there are no items in cart, add the first product
+        if(!cartItems) {
+            setCartItems([{
+                productID: product._id, 
+                productQuantity: qty,
+                productPrice: product.onSale ? product.salePrice : product.price,
+                productModel: [{model: selectedModel, modelQty: qty}],
+                productCategory: product.category,
+                productName: product.name,
+                productImage: product.images[0]
+            }])
+
+        } else {
+            // if the product already exists in the cart, check at what position and update its quantity
+            if (checkProductsInCart) {
+                const atIndex = cartItems.indexOf(checkProductsInCart)
+                // add the new quantity to previous value
+                cartItems[atIndex].productQuantity += qty
+
+                // map through the product models added to cart and check if the new product that is being added has
+                // the same model type, if yes update its quantity, else the new product being added has different model type chosen
+                // so push a new object with the new model value and its quantity
+                let modelValues = cartItems[atIndex].productModel
+                modelValues.map((modelType) => {
+                    if (modelType.model === selectedModel) {
+                        modelType.modelQty += qty 
+                    } else {
+                        (cartItems[atIndex].productModel).push({model: selectedModel, modelQty: qty})
+                    }
+                })
+                
+    
+            // if it is a new product added to the cart execute the block below
+            } else {
+                setCartItems([...cartItems, {
+                    productID: product._id, 
+                    productQuantity: qty,
+                    productPrice: product.onSale ? product.salePrice : product.price,
+                    productModel: [{model: selectedModel, modelQty: qty}],
+                    productCategory: product.category,
+                    productName: product.name,
+                    productImage: product.images[0]
+                }])
+            }
+        }
+    }
+
+    console.log("initial cart items")
+    console.log(cartItems)
 
     return (
         <ClientOnly>
@@ -86,8 +149,6 @@ export default function SingleProduct({product}) {
 
                 </div>
 
-
-
                 <div className={ProductsPageStyles.purchasingDetails}>
                     <div className={ProductsPageStyles.detailsGeneralInfo}>
                         <h2 className={ProductsPageStyles.detailsTitle}>{(product.name).toUpperCase()} {product.description}</h2>
@@ -100,7 +161,7 @@ export default function SingleProduct({product}) {
                             <select className={ProductsPageStyles.modelSectionDropdown} id="model" name="model">
                                 {modelTypes.map((model, index) => {
                                     return (
-                                        <option key={index}>{model}</option>
+                                        <option value={model} key={index}>{model}</option>
                                     )
                                 })}
                             </select>
@@ -110,14 +171,14 @@ export default function SingleProduct({product}) {
                     <div className={ProductsPageStyles.qtySection}>
                         <p className={ProductsPageStyles.qtySectionTitle}>Qty</p>
                         <div className={ProductsPageStyles.qtyOptions}>
-                            <button className={ProductsPageStyles.qtyBtn}>-</button>
-                            <span className={ProductsPageStyles.qtyDisplay}>1</span>
-                            <button className={ProductsPageStyles.qtyBtn}>+</button>
+                            <button onClick={() => setQty(qty > 1 ? qty - 1 : qty)} className={ProductsPageStyles.qtyBtn}>-</button>
+                            <span className={ProductsPageStyles.qtyDisplay}>{qty}</span>
+                            <button onClick={() => setQty(qty + 1)} className={ProductsPageStyles.qtyBtn}>+</button>
                         </div>
                     </div>
 
                     <div className={ProductsPageStyles.buySection}>
-                        <button className={ProductsPageStyles.buyBtn}>Add To Cart - £{product.onSale ? product.salePrice : product.price}</button>
+                        <button onClick={addToCart} className={ProductsPageStyles.buyBtn}>Add To Cart - £{product.onSale ? (qty * product.salePrice) : (qty * product.price)}</button>
                     </div>
 
                     <div className={ProductsPageStyles.extraProductInfo}>

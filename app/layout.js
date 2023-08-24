@@ -2,6 +2,7 @@ import './globals.css'
 import Footer from '@/components/footer/Footer'
 import Navbar from '@/components/navigation/Navbar';
 import "@fortawesome/fontawesome-svg-core/styles.css"; 
+import { CartContextProvider } from './context/cartStore';
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,14 +13,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body id='body'>
-        <nav>
-            <Navbar />
-        </nav>
-          {children}
-        <footer>
-            <Footer />
-        </footer>
-        
+        <CartContextProvider>
+          <nav>
+              <Navbar />
+          </nav>
+            {children}
+          <footer>
+              <Footer />
+          </footer>
+        </CartContextProvider>
       </body>
     </html>
   )
