@@ -15,7 +15,7 @@ export default function ExploreBest() {
                     <BestSellerCarousel />
                 </div>
                 <div className={homePageStyles.bestSellerCTA}>
-                    <Link href={"/"}>
+                    <Link href={"/new-in"}>
                         <button className={homePageStyles.bestSellersBtn}>See more</button>
                     </Link>
                 </div>

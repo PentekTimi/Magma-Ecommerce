@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function CategoryShop() {
     return (
-        <div className={`${homePageStyles.categorySection} ${homePageStyles.container}`}>
+        <div id="categoryShop" className={`${homePageStyles.categorySection} ${homePageStyles.container}`}>
             <div className={homePageStyles.categoryWrap}>
                 <h2 className={homePageStyles.categoryTitle}>Shop by Category</h2>
                 <div className={homePageStyles.categoryDesktopView}>

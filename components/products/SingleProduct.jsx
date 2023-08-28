@@ -14,7 +14,7 @@ export default function SingleProduct({product}) {
     const [qty, setQty] = useState(1)
     const [activeImg, setActiveImg] = useState(0)
     // retrieve global values from context
-    const {cartItems, setCartItems, totalQty, setTotalQty} = useCartContext()
+    const {cartItems, setCartItems, totalQty, setTotalQty, setTotalPrice} = useCartContext()
 
     product = JSON.parse(product)
     product = product[0]
@@ -55,10 +55,12 @@ export default function SingleProduct({product}) {
     // "releaseDate":"2023-07-12","bestSeller":true,"category":"laptop","onSale":false,"salePrice":32.99}]
 
     function addToCart () {
+        let modelIndexes = []
         
-        // update totalQuantity for cart icon
+        // update totalQuantity for cart icon and totalPrice
         setTotalQty(prevValue => prevValue + qty)
-
+        setTotalPrice(prevValue => prevValue + (qty *(product.onSale ? product.salePrice : product.price)))
+        
         // check if the item added to cart already exists in the cart
         const checkProductsInCart = cartItems.find((cartItem) => cartItem.productID === product._id)
         const selectedModel = (document.querySelector("#model")).value
@@ -69,39 +71,46 @@ export default function SingleProduct({product}) {
                 productID: product._id, 
                 productQuantity: qty,
                 productPrice: product.onSale ? product.salePrice : product.price,
-                productModel: [{model: selectedModel, modelQty: qty}],
+                productModel: selectedModel,
                 productCategory: product.category,
                 productName: product.name,
                 productImage: product.images[0]
             }])
 
         } else {
-            // if the product already exists in the cart, check at what position and update its quantity
+            // if the product already exists in the cart
             if (checkProductsInCart) {
-                const atIndex = cartItems.indexOf(checkProductsInCart)
-                // add the new quantity to previous value
-                cartItems[atIndex].productQuantity += qty
-
-                // map through the product models added to cart and check if the new product that is being added has
-                // the same model type, if yes update its quantity, else the new product being added has different model type chosen
-                // so push a new object with the new model value and its quantity
-                let modelValues = cartItems[atIndex].productModel
-                modelValues.map((modelType) => {
-                    if (modelType.model === selectedModel) {
-                        modelType.modelQty += qty 
-                    } else {
-                        (cartItems[atIndex].productModel).push({model: selectedModel, modelQty: qty})
+                
+                cartItems.forEach((element, index) => {
+                    if (element.productModel === selectedModel) {
+                        modelIndexes.push(index)
                     }
                 })
+                // const atIndex = cartItems.indexOf(checkProductsInCart)
+                if (modelIndexes.length > 0) {
+                    if (cartItems[modelIndexes[0]].productModel === selectedModel) {
+                        // add the new quantity to previous value
+                        cartItems[modelIndexes[0]].productQuantity += qty
+                    }
+                } else {
+                    setCartItems([...cartItems, {
+                        productID: product._id, 
+                        productQuantity: qty,
+                        productPrice: product.onSale ? product.salePrice : product.price,
+                        productModel: selectedModel,
+                        productCategory: product.category,
+                        productName: product.name,
+                        productImage: product.images[0]
+                    }])
+                }
                 
-    
-            // if it is a new product added to the cart execute the block below
+                // if it is a new product added to the cart execute the block below
             } else {
                 setCartItems([...cartItems, {
                     productID: product._id, 
                     productQuantity: qty,
                     productPrice: product.onSale ? product.salePrice : product.price,
-                    productModel: [{model: selectedModel, modelQty: qty}],
+                    productModel: selectedModel,
                     productCategory: product.category,
                     productName: product.name,
                     productImage: product.images[0]
@@ -110,8 +119,6 @@ export default function SingleProduct({product}) {
         }
     }
 
-    console.log("initial cart items")
-    console.log(cartItems)
 
     return (
         <ClientOnly>

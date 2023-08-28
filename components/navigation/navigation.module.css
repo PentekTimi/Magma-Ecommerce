@@ -285,3 +285,24 @@
 .saleLinkMobile {
     color: #FD786A;
 }
+
+
+/* Interactive styles */
+.cartQuantity {
+    position: absolute;
+    font-size: 12px;
+    top: -.5rem;
+    right: -.25rem;
+    background-color: #FD786A;
+    color: white;
+    padding: .15rem .35rem;
+    border-radius: 99px;
+}
+
+.cartQuantityPopupNoShow {
+    display: none;
+}
+
+.cartQuantityPopup {
+    display: block;
+}

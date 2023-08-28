@@ -7,8 +7,11 @@ import { useState } from "react"
 import links from "./links"
 import Link from "next/link"
 import SearchBar from "./SearchBar"
+import { useCartContext } from "@/app/context/cartStore"
 
 export default function MobileNavbar() {
+    
+    const {totalQty} = useCartContext();
     const [menu, setMenu] = useState(false)
     
     const handleClick = () => {
@@ -45,9 +48,14 @@ export default function MobileNavbar() {
                         <div className={NavbarStyles["icon-container-mobile"]}>
                             <AccountIcon />
                         </div>
-                        <div className={NavbarStyles["icon-container-mobile"]}>
-                            <CartIcon />
-                        </div>
+                        <Link href={"/cart"}>
+                            <div className={NavbarStyles["icon-container-mobile"]}>
+                                <CartIcon />
+                                <div className={NavbarStyles.cartQuantityPopup}>
+                                    <span className={totalQty < 1 ? `${NavbarStyles.cartQuantityPopupNoShow}` : `${NavbarStyles.cartQuantity}` }>{totalQty}</span>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
 
                 </div>

@@ -8,9 +8,12 @@ import arrow from "../../public/arrow.svg"
 import Image from "next/legacy/image";
 import links from "./links"
 import { useState } from "react";
+import { useCartContext } from "@/app/context/cartStore";
 
 
 export default function DesktopNavbar() {
+
+    const {totalQty} = useCartContext();
 
     const [hover, setHover] = useState(false)
     const [search, setSearch] = useState(false)
@@ -78,9 +81,14 @@ export default function DesktopNavbar() {
                             <div className={NavbarStyles["icon-container"]}>
                                 <AccountIcon />
                             </div>
-                            <div className={NavbarStyles["icon-container"]}>
-                                <CartIcon />
-                            </div>
+                            <Link href={"/cart"}>
+                                <div className={NavbarStyles["icon-container"]}>
+                                    <CartIcon />
+                                    <div className={NavbarStyles.cartQuantityPopup}>
+                                        <span className={totalQty < 1 ? `${NavbarStyles.cartQuantityPopupNoShow}` : `${NavbarStyles.cartQuantity}` }>{totalQty}</span>
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
 
