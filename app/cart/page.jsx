@@ -11,13 +11,39 @@ import EmptyCart from "@/components/cart/EmptyCart"
 
 export default function Cart() {
 
+    const {cartItems, totalPrice, setTotalQty, setTotalPrice} = useCartContext()
     
-
     const desktopView = useMediaQuery({
         query: "(min-width: 992px)"
     })
 
-    const {cartItems, totalPrice} = useCartContext()
+    function decreaseQty(indexOfItem) {
+        if (cartItems[indexOfItem].productQuantity > 1) {
+            cartItems[indexOfItem].productQuantity = cartItems[indexOfItem].productQuantity - 1
+            setTotalQty(prevValue => prevValue - 1)
+            setTotalPrice(prevValue => prevValue - cartItems[indexOfItem].productPrice)
+        } else {
+            cartItems[indexOfItem].productQuantity = 1
+        }
+    }
+
+    function increaseQty(indexOfItem) {
+        cartItems[indexOfItem].productQuantity = cartItems[indexOfItem].productQuantity + 1
+        setTotalQty(prevValue => prevValue + 1)
+        setTotalPrice(prevValue => prevValue + cartItems[indexOfItem].productPrice)
+    }
+
+    function removeItem(indexOfItem) {
+        let itemToBeRemoved = cartItems[indexOfItem]
+
+        setTotalQty(prevValue => prevValue - itemToBeRemoved.productQuantity)
+        setTotalPrice(prevValue => prevValue - (itemToBeRemoved.productQuantity * itemToBeRemoved.productPrice))
+        // remove the element from the cart
+        cartItems.splice(indexOfItem, 1)
+    }
+
+    console.log(cartItems)
+
 
     return (
         <ClientOnly>
@@ -28,7 +54,13 @@ export default function Cart() {
                     </div>
 
                     <div>
-                        {desktopView ? <DesktopCartItems /> : <MobileCartItems />}
+                        {
+                        desktopView 
+                        ? 
+                        <DesktopCartItems decreaseQty={decreaseQty} increaseQty={increaseQty} removeItem={removeItem} /> 
+                        : 
+                        <MobileCartItems decreaseQty={decreaseQty} increaseQty={increaseQty} removeItem={removeItem} />
+                        }
                     </div>
 
                     

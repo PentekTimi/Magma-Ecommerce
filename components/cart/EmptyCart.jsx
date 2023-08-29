@@ -44,7 +44,9 @@ export default function EmptyCart() {
       
     return (
         <div className={CartStyles.emptyCart}>
-            <p className={CartStyles.emptyCartTitle}>Your cart is empty. Maybe you should <Link className={CartStyles.emptyCartLink} href="/shop/phone-cases">take a look at our phone cases?</Link></p>
+            <div className={CartStyles.container}>
+                <p className={CartStyles.emptyCartTitle}>Your cart is empty. Maybe you should <Link className={CartStyles.emptyCartLink} href="/shop/phone-cases">take a look at our phone cases?</Link></p>
+            </div>
                     <div className={CartStyles.emptyCartSlider}>
                         <Slider {...settings}>
                             {imageSources.map((imgSource) => {

@@ -5,7 +5,7 @@ import CartStyles from "./cart.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMinus, faPlus, faTrash } from "@fortawesome/fontawesome-free-solid"
 
-export default function DesktopCartItems() {
+export default function DesktopCartItems({decreaseQty, increaseQty, removeItem}) {
 
     const {cartItems} = useCartContext()
     
@@ -29,9 +29,9 @@ export default function DesktopCartItems() {
                         </div>
 
                         <div className={CartStyles.cartQtyOptions}>
-                            <button className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={CartStyles.faQtyBtn} icon={faMinus}/></button>
+                            <button onClick={() => decreaseQty(index)} className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={CartStyles.faQtyBtn} icon={faMinus}/></button>
                             <span className={CartStyles.cartQtyDisplay}>{cartItem.productQuantity}</span>
-                            <button className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={`${CartStyles.faQtyBtn} ${CartStyles.faQtyBtnPlus}`} icon={faPlus}/></button>
+                            <button onClick={() => increaseQty(index)} className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={`${CartStyles.faQtyBtn} ${CartStyles.faQtyBtnPlus}`} icon={faPlus}/></button>
                         </div>
 
                         <div className={CartStyles.cartItemTotalPriceContainer}>
@@ -39,7 +39,7 @@ export default function DesktopCartItems() {
                         </div>
 
                         <div className={CartStyles.removeItemBtn}>
-                            <button className={CartStyles.removeBtn}><FontAwesomeIcon className={CartStyles.faRemoveBtn} icon={faTrash} /></button>
+                            <button onClick={() => removeItem(index)} className={CartStyles.removeBtn}><FontAwesomeIcon className={CartStyles.faRemoveBtn} icon={faTrash} /></button>
                         </div>
 
                     </div>

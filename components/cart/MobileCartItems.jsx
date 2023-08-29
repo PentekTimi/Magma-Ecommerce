@@ -5,9 +5,14 @@ import CartStyles from "./cart.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus, faTrash } from "@fortawesome/fontawesome-free-solid";
 
-export default function MobileCartItems() {
 
-    const {cartItems, setCartItems} = useCartContext()
+
+
+export default function MobileCartItems({ decreaseQty, increaseQty, removeItem}) {
+    
+    const {cartItems} = useCartContext()
+    console.log(cartItems)
+
     return (
         <div>
 
@@ -26,15 +31,15 @@ export default function MobileCartItems() {
                                     <p className={CartStyles.cartItemModel}>{cartItem.productModel}</p>
                                 </div>
                                 <div className={CartStyles.removeItemBtn}>
-                                    <button className={CartStyles.removeBtn}><FontAwesomeIcon className={CartStyles.faRemoveBtn} icon={faTrash} /></button>
+                                    <button onClick={() => removeItem(index)} className={CartStyles.removeBtn}><FontAwesomeIcon className={CartStyles.faRemoveBtn} icon={faTrash} /></button>
                                 </div>
                             </div>
 
                             <div className={`${CartStyles.flex} ${CartStyles.cartInfoSummary}`}>
                                 <div className={CartStyles.cartQtyOptions}>
-                                    <button className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={CartStyles.faQtyBtn} icon={faMinus}/></button>
+                                    <button onClick={() => decreaseQty(index)} className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={CartStyles.faQtyBtn} icon={faMinus}/></button>
                                     <span className={CartStyles.cartQtyDisplay}>{cartItem.productQuantity}</span>
-                                    <button className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={`${CartStyles.faQtyBtn} ${CartStyles.faQtyBtnPlus}`} icon={faPlus}/></button>
+                                    <button onClick={() => increaseQty(index)} className={CartStyles.cartQtyBtn}><FontAwesomeIcon className={`${CartStyles.faQtyBtn} ${CartStyles.faQtyBtnPlus}`} icon={faPlus}/></button>
                                 </div>
                                 <div className={CartStyles.cartItemTotalPriceContainer}>
                                     <p className={CartStyles.cartItemTotalPrice}>£{cartItem.productPrice * cartItem.productQuantity}</p>
