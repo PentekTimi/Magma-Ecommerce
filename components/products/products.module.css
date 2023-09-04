@@ -219,6 +219,36 @@
     margin-bottom: .25em;
 }
 
+/* search results page */
+.searchTermDisplay {
+    font-size: 20px;
+    margin-bottom: .5rem;
+}
+
+.foundItemsPage {
+    margin-top: 2rem;
+}
+
+.searchPage .productsContainer {
+    justify-content: space-between;
+}
+
+.notFoundPage {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.notFoundError {
+    font-size: 20px;
+    text-align: center;
+}
+
+.homePageLink {
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    color: rgb(146, 118, 172);
+}
+
 /* screen sizes greater than 420px */
 @media (min-width: 420px) {
     /* add flex to products container*/
@@ -246,6 +276,10 @@
 
     .mainGalleryImg {
         height: 400px;
+    }
+
+    .searchPage .productsContainer {
+        justify-content: space-evenly;
     }
 
 }
@@ -300,3 +334,4 @@
         margin-top: 1em;
     }
 }
+

@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import Logo from "../common/Logo";
 import AccountIcon from "./AccountIcon";
@@ -7,16 +8,21 @@ import NavbarStyles from "./navigation.module.css"
 import arrow from "../../public/arrow.svg"
 import Image from "next/legacy/image";
 import links from "./links"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCartContext } from "@/app/context/cartStore";
+import { useRouter } from "next/navigation";
+import ClientOnly from "../common/ClientOnly";
 
 
 export default function DesktopNavbar() {
 
+    const router = useRouter()
     const {totalQty} = useCartContext();
+    
 
     const [hover, setHover] = useState(false)
     const [search, setSearch] = useState(false)
+    const [searchTerm, setSearchTerm] = useState("")
 
     const handleHover = () => {setHover(true)}
     const handleLeave = () => {setHover(false)}
@@ -30,7 +36,18 @@ export default function DesktopNavbar() {
     }
 
 
-    // on fcus remove cursor- out focus add it back?
+    const searchValueAdded = (event) => {
+        let searchInput = document.getElementById("searchQuestion")
+        setSearchTerm(event.target.value)
+        
+        searchInput.addEventListener("keypress", function(e) {
+                if (e.key === "Enter") {
+                    e.preventDefault()
+                    router.push(`/search?q=${event.target.value}`)
+                }
+            })
+        }
+        
 
     return (
         <div>
@@ -101,11 +118,11 @@ export default function DesktopNavbar() {
            <div className={NavbarStyles.activeSearchDropdown} onWheel={searchExit}>
                 <div className={NavbarStyles.searchFiller} onMouseEnter={searchClick} onMouseLeave={searchExit}>
                     <div className={NavbarStyles.flex}>
-                        <div className={NavbarStyles.searchIconMobile}>
+                        <div className={NavbarStyles.searchIconMobile} onClick={() => {router.push(`/search?q=${searchTerm}`)}}>
                             <SearchIcon />
                         </div>
                         <form>
-                            <input className={NavbarStyles.searchInputDesktop} onFocus={removeCursor} autoComplete="off" type="text" name="search" placeholder="Search..."></input>
+                            <input id="searchQuestion" className={NavbarStyles.searchInputDesktop} onFocus={removeCursor} onChange={searchValueAdded} autoComplete="off" type="text" name="search" placeholder="Search for an item or category..."></input>
                             <span id="cursor" className={NavbarStyles.cursor}></span>
                         </form>
                     </div>
@@ -120,7 +137,8 @@ export default function DesktopNavbar() {
                     </div>
                 </div>
                 <div className={NavbarStyles.backDrop}></div>
-           </div>}
+           </div>
+           }
         </div>
     )
 }

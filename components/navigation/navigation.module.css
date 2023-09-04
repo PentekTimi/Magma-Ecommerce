@@ -168,11 +168,12 @@
 }
 
 .searchInputDesktop {
-    font-size: 24px;
+    font-size: 22px;
     border: none;
     background: transparent;
     outline: none;
     position: relative;
+    width: 400px;
 }
 
 /* blinking cursor css */
@@ -262,6 +263,7 @@
     width: 25px;
     height: 25px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .searchInput {
