@@ -32,7 +32,13 @@ export async function findProduct(category, productId) {
             break;
         case "smartwatch-bands":
             collection = "watchbands"
-            break
+            break;
+        case "sale":
+            collection = "allProducts"
+            break;
+        case "new-in":
+            collection = "allProducts"
+            break;
     }
 
     // use mongodb connection and find the product 

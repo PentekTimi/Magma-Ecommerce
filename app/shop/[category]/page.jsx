@@ -24,7 +24,15 @@ export default async function ProductsPage({params, searchParams}) {
         case "smartwatch-bands":
             receivedData = "watchbands"
             apiRoute = "watches"
-            break
+            break;
+        case "sale":
+            receivedData = "allProducts"
+            apiRoute = "discounted"
+            break;
+        case "new-in":
+            receivedData = "allProducts"
+            apiRoute = "new"
+            break;
     }
 
     // fetch full category data to find out how many products will be displayed
@@ -54,14 +62,14 @@ async function init() {
 }
 
 // fetch data from db given the limit of 12 products, and given the page argument that is changing
-export const getData = async (page = 1, limit = 12) => {
+export const getData = async (page = 1, limit = 12, filter) => {
     try {
         await init()
         if(!products) await init()
         const skip = (page - 1) * limit
         
         const result = await products
-        .find()
+        .find(filter)
         .limit(limit)
         .skip(skip)
         .toArray()

@@ -46,7 +46,7 @@ export default function DesktopNavbar() {
 
                     <div>
                         <ul className={NavbarStyles.flex}>
-                            <li><Link prefetch={false} href={"/new-in"} className={NavbarStyles.links}>New In</Link></li>
+                            <li><Link prefetch={false} href={"/shop/new-in"} className={NavbarStyles.links}>New In</Link></li>
                             <li>
                                 <div className={NavbarStyles.flex} onMouseEnter={handleHover} onMouseLeave={handleLeave}>
                                     <p className={`${NavbarStyles["links"]} ${NavbarStyles["shop-link"]}`}>Shop</p>
@@ -55,7 +55,7 @@ export default function DesktopNavbar() {
                                     </div>
                                 </div>
                             </li>
-                            <li><Link prefetch={false} href={"/sale"} className={`${NavbarStyles.links} ${NavbarStyles.saleLink}`}>Sale</Link></li>
+                            <li><Link prefetch={false} href={"/shop/sale"} className={`${NavbarStyles.links} ${NavbarStyles.saleLink}`}>Sale</Link></li>
                             <li><Link prefetch={false} href={"/about"} className={NavbarStyles.links}>About</Link></li>
                         </ul>
 

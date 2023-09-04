@@ -6,9 +6,20 @@ import ProductCard from "./ProductCard"
 export default async function Products({category, searchParams, lengthData}) {
 
     const page = typeof(searchParams.page) === "string" ? Number(searchParams.page) : 1
-    // get products data
-    const initial = await getData(page)
-    let productsData = JSON.parse(initial)
+    let productsData;
+    
+    if(category === "sale") {
+        // get products data
+        const initial = await getData(page, 12, {onSale:true})
+        productsData = JSON.parse(initial)
+    } if (category === "new-in") {
+        const initial = await getData(page, 12, {bestSeller:true})
+        productsData = JSON.parse(initial)
+    } else {
+        // get products data
+        const initial = await getData(page, 12, {})
+        productsData = JSON.parse(initial)
+    }
 
     // calculate the total page numbers that will fit all the products. based on this number the "next" page control button, and linking will be enabled or disabled
     let pageNumbers = Math.ceil(lengthData / 12)

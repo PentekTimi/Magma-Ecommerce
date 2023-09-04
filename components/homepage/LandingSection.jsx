@@ -14,7 +14,7 @@ export default function LandingSection() {
                 <div className={homePageStyles.landingCopyWrapper}>
                     <h1 className={homePageStyles.landingHeading}>Immerse your tech in a seamless blend of form and function.</h1>
                     <div className={`${homePageStyles.flex} ${homePageStyles.landingCTAs}`}>
-                        <Link href={"/"}><button className={homePageStyles.exploreBtn}>Explore</button></Link>
+                        <Link href={"/shop/new-in"}><button className={homePageStyles.exploreBtn}>Explore</button></Link>
                         
                         <Link href="#categoryShop" className={`${homePageStyles.flex} ${homePageStyles.categoryLinkContainer}`}>
                             <span className={homePageStyles.categoryLink}>Shop by Category</span>

@@ -7,14 +7,7 @@ import homePageStyles from "./home.module.css";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-const items = [
-    {src: "https://storage.googleapis.com/magma-bucket/bestSeller-sliderImg/aya.png", name: "Aya", price: 39}, 
-    {src: "https://storage.googleapis.com/magma-bucket/bestSeller-sliderImg/elara.png", name: "zara", price: 39}, 
-    {src: "https://storage.googleapis.com/magma-bucket/bestSeller-sliderImg/quinn.png", name: "elara", price: 39}, 
-    {src: "https://storage.googleapis.com/magma-bucket/bestSeller-sliderImg/farrah.png", name: "farrah", price: 39}, 
-    {src: "https://storage.googleapis.com/magma-bucket/bestSeller-sliderImg/zariah.png", name: "alana", price: 39}, 
-    {src: "https://storage.googleapis.com/magma-bucket/bestSeller-sliderImg/yara.png", name: "yAra", price: 39}]
+import items from './bestSellerItems';
 
 // props are destructured- we have access to both active, and initialActive var
 export default function BestSellerCarousel () {
@@ -69,7 +62,7 @@ export default function BestSellerCarousel () {
                             <div className={idx === imageIndex ? `${homePageStyles.bestSellersImgContainer} ${homePageStyles.activeImg}`: `${homePageStyles.bestSellersImgContainer}`}>
                                 <Image src={item.src} alt={item.name} layout='fill'/>
                             </div>
-                            <Link href={"/shop/"} className={homePageStyles.carouselCopy}>
+                            <Link href={`/shop/${item.category}/${item.id}`} className={homePageStyles.carouselCopy}>
                                 <div className={homePageStyles.carouselItemsCopy}>
                                     <p className={homePageStyles.carouselItemName}>{item.name}</p>
                                     <p className={homePageStyles.carouselItemPrice}>£{item.price}</p>
