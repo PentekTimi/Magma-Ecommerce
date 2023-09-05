@@ -1,0 +1,149 @@
+.container {
+    padding: 20px min(10%, 120px);
+}
+
+.contactTitle {
+    text-align: center;
+    margin: 2rem 0rem 1.5rem;
+}
+
+.contactCard {
+    background-color: #F3F5FC;
+    padding: 1rem 0;
+    border-radius: 23px;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.contactInfoWrapper {
+    padding: 1rem;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.contactImage {
+    object-fit: contain;
+}
+
+.contactInfoTitle {
+    font-size: 20px;
+    margin: .75rem 0rem;
+}
+
+.infoDetails {
+    margin-bottom: .5rem;
+}
+
+.businessInfoDetails {
+    font-size: 14px;
+}
+
+
+/* form */
+.formWrapper {
+    margin-bottom: 2rem;
+}
+
+.contactForm {
+    background-color: white;
+    margin: 1rem;
+    padding: 1rem .5rem;
+    border-radius: 7px;
+}
+
+.labels {
+    font-family: "Lato";
+    color: #1d1d1d;
+}
+
+.nameField, .emailField, .messageBox {
+    border: none;
+    background-color: #FAFAFA;
+    margin: .25rem 0 1rem;
+    width: 95%;
+}
+
+.nameField::placeholder, .emailField::placeholder, .messageBox::placeholder {
+    font-family: "Lato";
+    color: #a8a8a8;
+}
+
+.nameField, .emailField {
+    height: 2rem;
+    padding-left: .5rem;
+}
+
+.messageBox {
+    height: 10rem;
+    padding-left: .5rem;
+}
+
+.submitBtn {
+    border: none;
+    background-color: #1d1d1d;
+    color: white;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    font-family: "Lato";
+    font-weight: 300;
+    letter-spacing: .1rem;
+    border-radius: 7px;
+}
+
+@media (min-width: 600px) and (max-width: 992px) {
+    .contactCopy {
+        text-align: center;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 600px)  {
+    .submitBtnWrapper {
+        text-align: center;
+    }
+}
+
+@media (min-width: 992px)  {
+    .contactCard {
+        display: flex;
+    }
+
+    .contactInfoWrapper {
+        padding: 0;
+    }
+
+    .imageWrapper {
+        width: 350px;
+        height: 300px;
+        margin: 0;
+    }
+    
+    .imageWrapper {
+        object-fit: cover;
+        right: 7%;
+        bottom: 6%;
+        position: relative;
+    }
+
+    .contactInfoWrapper {
+        width: 40%;
+    }
+
+    .contactCopy {
+        max-width: 300px;
+        margin: 0 2rem;
+    }
+
+    .formWrapper {
+        width: 60%;
+    }
+
+    
+}
