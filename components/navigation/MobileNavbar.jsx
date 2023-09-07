@@ -64,18 +64,18 @@ export default function MobileNavbar() {
             {/* render the dropdown elements if the menu is true */}
             {menu && 
             <div className={NavbarStyles.hamburgerMenu}>
-                <SearchBar />
+                <SearchBar closeMenu={handleClick}/>
                 <ul className={NavbarStyles.mobileLinksList}>
-                    <li><Link prefetch={false} href={"/shop/new-in"} className={NavbarStyles.mobileLinks}>New In</Link></li>
+                    <li><Link onClick={handleClick} prefetch={false} href={"/shop/new-in"} className={NavbarStyles.mobileLinks}>New In</Link></li>
                     {links.map((menuItem, index) => {
                         return (
                             <li key={index}>
-                                <Link prefetch={false} href={menuItem.route} className={NavbarStyles.mobileLinks}>{menuItem.name}</Link>
+                                <Link onClick={handleClick} prefetch={false} href={menuItem.route} className={NavbarStyles.mobileLinks}>{menuItem.name}</Link>
                             </li>
                         )
                     })}
-                    <li><Link prefetch={false} href={"/shop/sale"} className={`${NavbarStyles.mobileLinks} ${NavbarStyles.saleLinkMobile}`}>Sale</Link></li>
-                    <li><Link prefetch={false} href={"/about"} className={NavbarStyles.mobileLinks}>About</Link></li>
+                    <li><Link onClick={handleClick} prefetch={false} href={"/shop/sale"} className={`${NavbarStyles.mobileLinks} ${NavbarStyles.saleLinkMobile}`}>Sale</Link></li>
+                    <li><Link onClick={handleClick} prefetch={false} href={"/about"} className={NavbarStyles.mobileLinks}>About</Link></li>
                 </ul>
 
             </div>}

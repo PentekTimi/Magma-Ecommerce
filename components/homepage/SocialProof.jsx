@@ -6,6 +6,7 @@ import greenmarblepov from "../../public/greenmarblepov.jpg"
 import liquidgold from "../../public/liquidgold.jpg"
 import nudemarble from "../../public/nudemarble.jpg"
 import pinkpop from "../../public/pinkpop.jpg"
+import Link from "next/link";
 
 export default function SocialProof() {
     return (
@@ -13,7 +14,7 @@ export default function SocialProof() {
             <div className={homePageStyles.socialProofContainer}>
                 <div className={homePageStyles.socialProofCopy}>
                     <h3 className={homePageStyles.socialProofTitle}>#MAGMA</h3>
-                    <p className={homePageStyles.socialProofSubtitle}>Join 536k followers at @officialmagma</p>
+                    <p className={homePageStyles.socialProofSubtitle}>Join 536k followers at <Link className={homePageStyles.instagramLink} href="https://instagram.com">@officialmagma</Link></p>
                 </div>
                 <div className={homePageStyles.socialImgContainer}>
                     <div className={homePageStyles.singleSocialImgContainer}>

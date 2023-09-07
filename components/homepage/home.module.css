@@ -275,6 +275,11 @@
     font-size: 14px;
 }
 
+.instagramLink {
+    color: black;
+    text-decoration: underline;
+}
+
 .singleSocialImgContainer {
     margin: .5rem 0;
 }

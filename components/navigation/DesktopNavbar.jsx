@@ -35,6 +35,10 @@ export default function DesktopNavbar() {
         cursor.classList.remove(`${NavbarStyles.cursor}`)
     }
 
+    const handleSearch = () => {
+        setSearch(false)
+    }
+
 
     const searchValueAdded = (event) => {
         let searchInput = document.getElementById("searchQuestion")
@@ -43,6 +47,7 @@ export default function DesktopNavbar() {
         searchInput.addEventListener("keypress", function(e) {
                 if (e.key === "Enter") {
                     e.preventDefault()
+                    setSearch(false)
                     router.push(`/search?q=${event.target.value}`)
                 }
             })
@@ -118,21 +123,21 @@ export default function DesktopNavbar() {
            <div className={NavbarStyles.activeSearchDropdown} onWheel={searchExit}>
                 <div className={NavbarStyles.searchFiller} onMouseEnter={searchClick} onMouseLeave={searchExit}>
                     <div className={NavbarStyles.flex}>
-                        <div className={NavbarStyles.searchIconMobile} onClick={() => {router.push(`/search?q=${searchTerm}`)}}>
+                        <div className={NavbarStyles.searchIconMobile} onClick={() => {setSearch(false); router.push(`/search?q=${searchTerm}`)}}>
                             <SearchIcon />
                         </div>
                         <form>
-                            <input id="searchQuestion" className={NavbarStyles.searchInputDesktop} onFocus={removeCursor} onChange={searchValueAdded} autoComplete="off" type="text" name="search" placeholder="Search for an item or category..."></input>
+                            <input autoFocus id="searchQuestion" className={NavbarStyles.searchInputDesktop} onFocus={removeCursor} onChange={searchValueAdded} autoComplete="off" type="text" name="search" placeholder="Search for an item or category..."></input>
                             <span id="cursor" className={NavbarStyles.cursor}></span>
                         </form>
                     </div>
                     <div className={NavbarStyles.quickLinksContainer}>
                         <p className={NavbarStyles.quickLinksTitle}>Quick Links</p>
                         <ul className={NavbarStyles.quickLinksList}>
-                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/shop/phone-cases"}>Phone Cases</Link></li>
-                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/shop/airpods-cases"}>Airpods Cases</Link></li>
-                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/delivery-and-returns"}>Delivery and Returns</Link></li>
-                            <li><Link prefetch={false} className={NavbarStyles.quickLinksListItem} href={"/faq"}>Faq</Link></li>
+                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/shop/phone-cases"}>Phone Cases</Link></li>
+                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/shop/airpods-cases"}>Airpods Cases</Link></li>
+                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/delivery-and-returns"}>Delivery and Returns</Link></li>
+                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/faq"}>Faq</Link></li>
                         </ul>
                     </div>
                 </div>
