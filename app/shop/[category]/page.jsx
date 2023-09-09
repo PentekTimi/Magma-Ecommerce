@@ -62,7 +62,7 @@ async function init() {
 }
 
 // fetch data from db given the limit of 12 products, and given the page argument that is changing
-export const getData = async (page = 1, limit = 12, filter) => {
+export const getData = async (page = 1, limit = 12, filter, sortBy) => {
     try {
         await init()
         if(!products) await init()
@@ -70,6 +70,7 @@ export const getData = async (page = 1, limit = 12, filter) => {
         
         const result = await products
         .find(filter)
+        .sort(sortBy)
         .limit(limit)
         .skip(skip)
         .toArray()

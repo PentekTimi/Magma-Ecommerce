@@ -249,6 +249,16 @@
     color: rgb(146, 118, 172);
 }
 
+/* sort by */
+
+.selectDropdown {
+    padding: .25rem .75rem;
+    border-radius: 6px;
+    margin-left: .5rem;
+    border: 1px solid #a7a7a7;
+}
+
+
 /* screen sizes greater than 420px */
 @media (min-width: 420px) {
     /* add flex to products container*/
