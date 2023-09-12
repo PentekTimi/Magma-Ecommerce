@@ -3,6 +3,7 @@ import Footer from '@/components/footer/Footer'
 import Navbar from '@/components/navigation/Navbar';
 import "@fortawesome/fontawesome-svg-core/styles.css"; 
 import { CartContextProvider } from './context/cartStore';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata = {
   title: 'Create Next App',
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
           <footer>
               <Footer />
           </footer>
+          <Toaster position='bottom-right' toastOptions={{style: {margin: '4rem'}}} />
         </CartContextProvider>
       </body>
     </html>

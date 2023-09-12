@@ -1,8 +1,11 @@
 import bannerImage from "../../public/bannerimage.jpg"
 import Image from "next/legacy/image";
 import homePageStyles from "./home.module.css";
+import BannerSignUp from "./BannerSignUp";
 
 export default function Banner() {
+    
+
     return (
         <div className={homePageStyles.bannerSection}>
             <div className={homePageStyles.bannerDesktopView}>
@@ -15,10 +18,7 @@ export default function Banner() {
                         <p className={homePageStyles.releaseDate}>Release Date:</p>
                         <p className={homePageStyles.promotionTime}>01.06.2023 GMT</p>
                     </div>
-                    <div className={`${homePageStyles.bannerInputWrapper} ${homePageStyles.flex}`}>
-                        <input className={homePageStyles.bannerInput} type="email" placeholder="example@email.com"></input>
-                        <button className={homePageStyles.bannerBtn}>Notify me!</button>
-                    </div>
+                    <BannerSignUp />
                 </div>
             </div>
         </div>
