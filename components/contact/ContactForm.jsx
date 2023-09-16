@@ -27,19 +27,19 @@ export default function ContactForm() {
            
                 <form ref={formRef} className={ContactStyles.contactForm} action={action}>
                     <label className={ContactStyles.labels} htmlFor="fname">First Name</label><br></br>
-                    <input className={ContactStyles.nameField} type="text" id="fname" name="firstname" placeholder="Your Name..." />
+                    <input className={ContactStyles.nameField} required type="text" id="fname" name="firstname" placeholder="Your Name..." />
 
                     <br></br>
                     <label className={ContactStyles.labels} htmlFor="lname">Last Name</label><br></br>
-                    <input className={ContactStyles.nameField} type="text" id="lname" name="lastname" placeholder="Your Last name..." />
+                    <input className={ContactStyles.nameField} required type="text" id="lname" name="lastname" placeholder="Your Last name..." />
 
                     <br></br>
                     <label className={ContactStyles.labels} htmlFor="email">Email</label><br></br>
-                    <input className={ContactStyles.emailField} type="email" id="email" name="email" placeholder="Your Email..." />
+                    <input className={ContactStyles.emailField} required type="email" id="email" name="email" placeholder="Your Email..." />
 
                     <br></br>
                     <label className={ContactStyles.labels} htmlFor="message">Message</label><br></br>
-                    <textarea className={ContactStyles.messageBox} id="message" name="message" placeholder="Write your message..."></textarea>
+                    <textarea className={ContactStyles.messageBox} required id="message" name="message" placeholder="Write your message..."></textarea>
 
                     <br></br>
                     <div className={ContactStyles.submitBtnWrapper}>

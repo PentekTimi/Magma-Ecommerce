@@ -22,7 +22,7 @@ export default function BannerSignUp() {
 
     return (
         <form ref={formRef} action={action} className={`${homePageStyles.bannerInputWrapper} ${homePageStyles.flex}`}>
-            <input className={homePageStyles.bannerInput} name="email" type="email" placeholder="example@email.com"></input>
+            <input required className={homePageStyles.bannerInput} name="email" type="email" placeholder="example@email.com"></input>
             <button type="submit" className={homePageStyles.bannerBtn}>Notify me!</button>
         </form>
     )

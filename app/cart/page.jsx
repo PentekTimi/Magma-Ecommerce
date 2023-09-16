@@ -7,6 +7,9 @@ import Link from "next/link"
 import { useCartContext } from "../context/cartStore"
 import ClientOnly from "@/components/common/ClientOnly"
 import EmptyCart from "@/components/cart/EmptyCart"
+import getStripe from "@/lib/getStripe"
+import toast from "react-hot-toast"
+import { NextResponse } from "next/server"
 
 
 export default function Cart() {
@@ -42,7 +45,32 @@ export default function Cart() {
         cartItems.splice(indexOfItem, 1)
     }
 
-    console.log(cartItems)
+    const handleCheckout = async () => {
+        const stripe =  await getStripe()
+
+        const response = await fetch("/api/checkout-sessions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({   
+                cartItems: cartItems,
+                totalPrice: totalPrice
+            })
+            
+        })
+
+        
+        if (response.statusCode === 500) {
+            console.log("status code 500 from page.jsx")
+            return
+        } 
+
+        const data = await response.json()
+        toast.loading("Redirecting...")
+        stripe.redirectToCheckout({sessionId: data.result.id})
+        
+    }
 
 
     return (
@@ -85,8 +113,8 @@ export default function Cart() {
                             </div>
                         </div>
 
-                        <div className={CartStyles.paymentLink}>
-                            <Link className={CartStyles.paymentLinkBtn} href="/">Proceed to Checkout</Link>
+                        <div onClick={handleCheckout} className={CartStyles.paymentLink}>
+                            <button className={CartStyles.paymentLinkBtn}>Proceed to Checkout</button>
                         </div>
                     </div>
                 
