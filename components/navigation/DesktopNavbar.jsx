@@ -8,10 +8,10 @@ import NavbarStyles from "./navigation.module.css"
 import arrow from "../../public/arrow.svg"
 import Image from "next/legacy/image";
 import links from "./links"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useCartContext } from "@/app/context/cartStore";
 import { useRouter } from "next/navigation";
-import ClientOnly from "../common/ClientOnly";
+import { AnimatePresence, motion } from "framer-motion";
 
 
 export default function DesktopNavbar() {
@@ -24,7 +24,12 @@ export default function DesktopNavbar() {
     const [search, setSearch] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
 
-    const handleHover = () => {setHover(true)}
+    const handleHover = () => {
+        setHover(true) 
+        if (search) {
+            setSearch(false)
+        }
+    }
     const handleLeave = () => {setHover(false)}
 
     const searchClick = () => {setSearch(true)}
@@ -52,6 +57,60 @@ export default function DesktopNavbar() {
                 }
             })
         }
+
+    // animation for search dropdown
+    const searchVariant = {
+        initial: {
+            scaleY: 0,
+        },
+        animate: {
+            scaleY: 1,
+            transition: {
+                duration: 0.2
+            }
+        },
+    }
+
+    // animation for search dropdown elements (opacity)
+    const searchElementVars = {
+        initial: {
+            opacity: 0
+        },
+        menu: {
+            opacity: 1,
+            transition: {
+                duration: 0.2,
+                delay: 0.2,
+            }
+        }
+    }
+ 
+    // animation for "Shop" menu dropdown
+    const shopVariant = {
+        initial: {
+            height: "0px",
+        },
+        animate: {
+            height: "220px",
+            transition: {
+                duration: 0.2,
+            }
+        },
+    }
+
+    // animation for "Shop" list items appearance (opacity)
+    const shopMenuVars = {
+        initial: {
+            opacity: 0
+        },
+        menu: {
+            opacity: 1,
+            transition: {
+                duration: 0.2,
+                delay: 0.1,
+            }
+        }
+    }
         
 
     return (
@@ -80,20 +139,21 @@ export default function DesktopNavbar() {
                             <li><Link prefetch={false} href={"/shop/sale"} className={`${NavbarStyles.links} ${NavbarStyles.saleLink}`}>Sale</Link></li>
                             <li><Link prefetch={false} href={"/about"} className={NavbarStyles.links}>About</Link></li>
                         </ul>
-
-                        {hover && 
-                            <div className={NavbarStyles.desktopDropdown} onMouseLeave={handleLeave} onMouseEnter={handleHover}>
-                                    <ul className={NavbarStyles.dropdownList}>
-                                        {links.map((menuItem, index) => {
-                                            return (
-                                                <li key={index}>
-                                                    <Link prefetch={false} href={menuItem.route} className={NavbarStyles.dropdownLinks}>{menuItem.name}</Link>
-                                                </li>
-                                            )
-                                        })}
-                                    </ul>
-                            </div>
-                        }
+                        <AnimatePresence>
+                            {hover && 
+                                <motion.div variants={shopVariant} initial="initial" animate="animate" className={NavbarStyles.desktopDropdown} onMouseLeave={handleLeave} onMouseEnter={handleHover}>
+                                        <ul className={NavbarStyles.dropdownList}>
+                                            {links.map((menuItem, index) => {
+                                                return (
+                                                    <motion.li variants={shopMenuVars} initial="initial" animate="menu" key={index}>
+                                                        <Link prefetch={false} href={menuItem.route} className={NavbarStyles.dropdownLinks}>{menuItem.name}</Link>   
+                                                    </motion.li>
+                                                )
+                                            })}
+                                        </ul>
+                                </motion.div>
+                            }
+                        </AnimatePresence>
                     </div>
                     <div>
                         <div className={NavbarStyles.flex}>
@@ -118,32 +178,34 @@ export default function DesktopNavbar() {
                 </div>
             </div>
 
-           {hover && <div className={NavbarStyles.fillerContent}></div>}
-           {search && 
-           <div className={NavbarStyles.activeSearchDropdown} onWheel={searchExit}>
-                <div className={NavbarStyles.searchFiller} onMouseEnter={searchClick} onMouseLeave={searchExit}>
-                    <div className={NavbarStyles.flex}>
-                        <div className={NavbarStyles.searchIconMobile} onClick={() => {setSearch(false); router.push(`/search?q=${searchTerm}`)}}>
-                            <SearchIcon />
-                        </div>
-                        <form>
-                            <input autoFocus id="searchQuestion" className={NavbarStyles.searchInputDesktop} onFocus={removeCursor} onChange={searchValueAdded} autoComplete="off" type="text" name="search" placeholder="Search for an item or category..."></input>
-                            <span id="cursor" className={NavbarStyles.cursor}></span>
-                        </form>
+           {hover && <motion.div variants={shopVariant} initial="initial" animate="animate" exit="exit" className={NavbarStyles.fillerContent}></motion.div>}
+           <AnimatePresence>
+            {search && 
+            <motion.div variants={searchVariant} initial="initial" animate="animate" className={NavbarStyles.activeSearchDropdown} onWheel={searchExit}>
+                    <div className={NavbarStyles.searchFiller} onMouseEnter={searchClick} onMouseLeave={searchExit}>
+                        <motion.div variants={searchElementVars} initial="initial" animate="menu"  className={NavbarStyles.flex}>
+                            <div className={NavbarStyles.searchIconMobile} onClick={() => {setSearch(false); router.push(`/search?q=${searchTerm}`)}}>
+                                <SearchIcon />
+                            </div>
+                            <form> 
+                                <input autoFocus id="searchQuestion" className={NavbarStyles.searchInputDesktop} onFocus={removeCursor} onChange={searchValueAdded} autoComplete="off" type="text" name="search" placeholder="Search for an item or category..."></input>
+                                <span id="cursor" className={NavbarStyles.cursor}></span>
+                            </form>
+                        </motion.div>
+                        <motion.div variants={searchElementVars} initial="initial" animate="menu"  className={NavbarStyles.quickLinksContainer}>
+                            <p className={NavbarStyles.quickLinksTitle}>Quick Links</p>
+                            <ul className={NavbarStyles.quickLinksList}>
+                                <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/shop/phone-cases"}>Phone Cases</Link></li>
+                                <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/shop/airpods-cases"}>Airpods Cases</Link></li>
+                                <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/delivery-and-returns"}>Delivery and Returns</Link></li>
+                                <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/faq"}>Faq</Link></li>
+                            </ul>
+                        </motion.div>
                     </div>
-                    <div className={NavbarStyles.quickLinksContainer}>
-                        <p className={NavbarStyles.quickLinksTitle}>Quick Links</p>
-                        <ul className={NavbarStyles.quickLinksList}>
-                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/shop/phone-cases"}>Phone Cases</Link></li>
-                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/shop/airpods-cases"}>Airpods Cases</Link></li>
-                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/delivery-and-returns"}>Delivery and Returns</Link></li>
-                            <li><Link prefetch={false} onClick={handleSearch} className={NavbarStyles.quickLinksListItem} href={"/faq"}>Faq</Link></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className={NavbarStyles.backDrop}></div>
-           </div>
-           }
+                    <div className={NavbarStyles.backDrop}></div>
+            </motion.div>
+            }
+           </AnimatePresence>
         </div>
     )
 }

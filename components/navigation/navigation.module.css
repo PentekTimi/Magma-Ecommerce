@@ -5,6 +5,10 @@
     justify-content: space-between;
 }
 
+.overflowHidden {
+    overflow: hidden;
+}
+
 /* container that adds the padding to the nav */
 .container {
     padding:  20px min(10%, 120px);
@@ -127,6 +131,7 @@
     background-color: white;
     width: 100%;
     z-index: 1;
+    transform-origin: top;
 }
 
 .fillerContent {
@@ -136,6 +141,7 @@
     background-color: white;
     position: absolute;
     z-index: 0;
+    transform-origin: top;
 }
 
 .dropdownList {
@@ -153,6 +159,7 @@
     position: absolute;
     width: 100%;
     z-index: 3;
+    transform-origin: top;
 }
 
 .searchFiller {
@@ -246,6 +253,7 @@
     background-color: white;
     z-index: -1;
     padding: 20% min(10%, 120px) 20px;
+    transform-origin: top;
 }
 
 .searchContainer {
@@ -253,6 +261,8 @@
     border-radius: 999px;
     padding: 10px 15px;
     margin-top: 15px;
+    overflow: hidden;
+   
 }
 
 .searchContainer form {
@@ -271,6 +281,11 @@
     border: none;
     outline: none;
     width: 80%;
+}
+
+.animateSearchBar {
+    transform-origin: 0 0;
+    overflow: hidden;
 }
 
 .mobileLinksList {

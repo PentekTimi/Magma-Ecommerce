@@ -1,17 +1,47 @@
+"use client"
 import Image from "next/legacy/image";
 import homePagephoneCase from "../../public/homePagephoneCase.jpg";
 import homePageStyles from "./home.module.css";
 import arrow from "../../public/arrow.svg"
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const fadeInImageVariant = {
+    initial: {
+        opacity: 0,
+        x: -100,
+    },
+    animate: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 0.5
+        }
+    }
+}
+
+const fadeInTextVariant = {
+    initial: {
+        opacity: 0,
+        x: 100,
+    },
+    animate: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 0.5
+        }
+    }
+}
 
 export default function LandingSection() {
     return (
         <div className={homePageStyles.landingWrapper}>
             <div className={homePageStyles.desktopView}>
-                <div className={homePageStyles.landingImgContainer}>
+                <motion.div variants={fadeInImageVariant} initial="initial" whileInView="animate" className={homePageStyles.landingImgContainer}>
                     <Image className={homePageStyles.landingImg} src={homePagephoneCase} priority sizes="100vw" alt="green phone case"/>
-                </div>
-                <div className={homePageStyles.landingCopyWrapper}>
+                </motion.div>
+                <motion.div variants={fadeInTextVariant} initial="initial" whileInView="animate" className={homePageStyles.landingCopyWrapper}>
                     <h1 className={homePageStyles.landingHeading}>Immerse your tech in a seamless blend of form and function.</h1>
                     <div className={`${homePageStyles.flex} ${homePageStyles.landingCTAs}`}>
                         <Link href={"/shop/new-in"}><button className={homePageStyles.exploreBtn}>Explore</button></Link>
@@ -23,7 +53,7 @@ export default function LandingSection() {
                             </div>
                         </Link>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     )

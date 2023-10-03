@@ -3,13 +3,11 @@ import DesktopCartItems from "@/components/cart/DesktopCartItems"
 import MobileCartItems from "@/components/cart/MobileCartItems"
 import { useMediaQuery } from "react-responsive"
 import CartStyles from "../../components/cart/cart.module.css"
-import Link from "next/link"
 import { useCartContext } from "../context/cartStore"
 import ClientOnly from "@/components/common/ClientOnly"
 import EmptyCart from "@/components/cart/EmptyCart"
 import getStripe from "@/lib/getStripe"
 import toast from "react-hot-toast"
-import { NextResponse } from "next/server"
 
 
 export default function Cart() {
@@ -62,7 +60,7 @@ export default function Cart() {
 
         
         if (response.statusCode === 500) {
-            console.log("status code 500 from page.jsx")
+            console.log("Error: status code 500")
             return
         } 
 

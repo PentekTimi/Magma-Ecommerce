@@ -8,6 +8,7 @@ import links from "./links"
 import Link from "next/link"
 import SearchBar from "./SearchBar"
 import { useCartContext } from "@/app/context/cartStore"
+import { AnimatePresence, easeOut, motion } from "framer-motion"
 
 export default function MobileNavbar() {
     
@@ -16,29 +17,92 @@ export default function MobileNavbar() {
     
     const handleClick = () => {
         setMenu(!menu)
+    }
 
-        // rotate the hamburger icon when the button gets clicked
-        let hamburgerIcon = document.getElementById("hamburgerMenu")
-        let body = document.getElementById("body")
-        if (!menu) {
-            hamburgerIcon.style.transform = "rotate(90deg)"
-
-            body.style.overflowY = "hidden";
-        } else {
-            hamburgerIcon.style.transform = "rotate(180deg)"
-            body.style.overflowY = "visible";
+    // animation for mobile dropdown
+    const mobileDropdownVariants = {
+        initial: {
+            scaleY:0,
+        },
+        animate: {
+            scaleY: 1,
+            transition: {
+                duration: 0.5,
+                ease: [0.12, 0, 0.39, 0]
+            }
+        },
+        exit: {
+            scaleY: 0,
+            transition: {
+                delay: 0.5,
+                duration: 0.5,
+                ease: [0.22, 1, 0.36, 1]
+            }
         }
     }
 
+    // animation for the list
+    const ulVars = {
+        initial: {
+            transition: {
+                staggerChildren: 0.09,
+                staggerDirection: -1,
+            }
+        },
+        menu: {
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.09,
+                staggerDirection: 1,
+            }
+        }
+    }
+
+    // animation for the list items
+    const listVariants = {
+        initial: {
+            y: "30vh",
+            transition: {
+                duration: 0.4,
+                ease: [0.37, 0, 0.63, 1]
+            }
+        },
+        menu: {
+            y: 0,
+            transition: {
+                ease: [0, 0.55, 0.45, 1],
+                duration: 0.6,
+            }
+        },
+    }
+
+    // animation for search bar inside the mobile dropdown nav
+    const searchBarVar = {
+        initial: {
+            opacity: 0,
+            width: "0px",
+            transition: {
+                delay: 0.3,
+            }
+            
+        },
+        menu: {
+            opacity: 1,
+            width: "100%",
+            transition: {
+                delay: 0.5,
+            }
+        }
+    }
 
     return (
         <div >
             <div className={NavbarStyles.container}>
                 <div className={NavbarStyles.flex}>
 
-                    <div id="hamburgerMenu" className={NavbarStyles["menu-container-mobile"]} onClick={handleClick}>
+                    <motion.div animate={{rotate: menu ? 90 : 0}} transition={{duration: 0.3, ease: easeOut}} id="hamburgerMenu" className={NavbarStyles["menu-container-mobile"]} onClick={handleClick}>
                         <Image src="/Burger-Nav.svg" alt="menu" layout="fill" sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
-                    </div>
+                    </motion.div>
 
                     <div className={NavbarStyles["logo-container"]}>
                         <Logo color={"black"}/>
@@ -62,23 +126,36 @@ export default function MobileNavbar() {
             </div>
 
             {/* render the dropdown elements if the menu is true */}
-            {menu && 
-            <div className={NavbarStyles.hamburgerMenu}>
-                <SearchBar closeMenu={handleClick}/>
-                <ul className={NavbarStyles.mobileLinksList}>
-                    <li><Link onClick={handleClick} prefetch={false} href={"/shop/new-in"} className={NavbarStyles.mobileLinks}>New In</Link></li>
-                    {links.map((menuItem, index) => {
-                        return (
-                            <li key={index}>
-                                <Link onClick={handleClick} prefetch={false} href={menuItem.route} className={NavbarStyles.mobileLinks}>{menuItem.name}</Link>
-                            </li>
-                        )
-                    })}
-                    <li><Link onClick={handleClick} prefetch={false} href={"/shop/sale"} className={`${NavbarStyles.mobileLinks} ${NavbarStyles.saleLinkMobile}`}>Sale</Link></li>
-                    <li><Link onClick={handleClick} prefetch={false} href={"/about"} className={NavbarStyles.mobileLinks}>About</Link></li>
-                </ul>
+            <AnimatePresence>
+                {menu && 
+                <motion.div variants={mobileDropdownVariants} initial="initial" animate="animate" exit="exit" className={NavbarStyles.hamburgerMenu}>
+                    <motion.div className={NavbarStyles.animateSearchBar} variants={searchBarVar} initial="initial" animate="menu" exit="initial">
+                        <SearchBar closeMenu={handleClick}/>
+                    </motion.div>
+                
+                    <motion.ul variants={ulVars} initial="initial" animate="menu" exit="initial" className={NavbarStyles.mobileLinksList}>
+                        <div className={NavbarStyles.overflowHidden}>
+                            <motion.li variants={listVariants}><Link onClick={handleClick} prefetch={false} href={"/shop/new-in"} className={NavbarStyles.mobileLinks}>New In</Link></motion.li>
+                        </div>
+                        {links.map((menuItem, index) => {
+                            return (
+                                <div className={NavbarStyles.overflowHidden}>
+                                    <motion.li variants={listVariants} key={index}>
+                                        <Link onClick={handleClick} prefetch={false} href={menuItem.route} className={NavbarStyles.mobileLinks}>{menuItem.name}</Link>
+                                    </motion.li>
+                                </div>
+                            )
+                        })}
+                        <div className={NavbarStyles.overflowHidden}>
+                            <motion.li variants={listVariants}><Link onClick={handleClick} prefetch={false} href={"/shop/sale"} className={`${NavbarStyles.mobileLinks} ${NavbarStyles.saleLinkMobile}`}>Sale</Link></motion.li>
+                        </div>
+                        <div className={NavbarStyles.overflowHidden}>
+                            <motion.li variants={listVariants}><Link onClick={handleClick} prefetch={false} href={"/about"} className={NavbarStyles.mobileLinks}>About</Link></motion.li>
+                        </div>
+                    </motion.ul>
 
-            </div>}
+                </motion.div>}
+            </AnimatePresence>
 
         </div>
     )

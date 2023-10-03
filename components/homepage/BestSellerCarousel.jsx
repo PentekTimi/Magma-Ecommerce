@@ -59,10 +59,10 @@ export default function BestSellerCarousel () {
                     {items.map((item, idx) => {
                         return(
                          <div className={homePageStyles.singleCarouselItem} key={idx}>
-                            <div className={idx === imageIndex ? `${homePageStyles.bestSellersImgContainer} ${homePageStyles.activeImg}`: `${homePageStyles.bestSellersImgContainer}`}>
-                                <Image src={item.src} alt={item.name} layout='fill'/>
-                            </div>
                             <Link href={`/shop/${item.category}/${item.id}`} className={homePageStyles.carouselCopy}>
+                                <div className={idx === imageIndex ? `${homePageStyles.bestSellersImgContainer} ${homePageStyles.activeImg}`: `${homePageStyles.bestSellersImgContainer}`}>
+                                    <Image priority src={item.src} alt={item.name} layout='fill'/>
+                                </div>
                                 <div className={homePageStyles.carouselItemsCopy}>
                                     <p className={homePageStyles.carouselItemName}>{item.name}</p>
                                     <p className={homePageStyles.carouselItemPrice}>£{item.price}</p>

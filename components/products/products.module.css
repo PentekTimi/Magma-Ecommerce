@@ -34,6 +34,7 @@
 }
 
 .productAmount {
+    color: #757575;
 }
 
 .productsContainer {
@@ -49,7 +50,7 @@
 /* product cards */
 
 .singleProductContainer {
-    margin: 3em .5em;
+    margin: 2.75em .5em;
 }
 
 .productImgWrapper {
@@ -64,6 +65,7 @@
 
 .productLabel {
     color: black;
+    margin-top: 1rem;
 }
 
 .productName {

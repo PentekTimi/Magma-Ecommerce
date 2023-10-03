@@ -8,9 +8,6 @@ export async function POST(req, res) {
     if (req.method === 'POST') {
         try {
         const body = await req.json()
-        console.log(body)
-        console.log(body.totalPrice)
-        console.log(typeof(body.totalPrice))
 
         const params = {
             submit_type: "pay",
