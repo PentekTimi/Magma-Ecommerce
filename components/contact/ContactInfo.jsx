@@ -13,7 +13,6 @@ export default function ContactInfo() {
                 <p className={ContactStyles.infoDetails}>Have an inquiry about Magma or need help with your order? Our team can help you.</p>
                 <p className={ContactStyles.businessInfoDetails}>For business inquiries please send email to admin@magma.com</p>
             </div>
-            
         </div>
     )
 }

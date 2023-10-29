@@ -25,8 +25,3 @@ export default function ProductCard({product, category}) {
         </div>
     )
 }
-
-// data set example
-// {"_id":"646f22a53207460080ed24ee","name":"alaia","description":"gilded blooms print","price":30,
-// "images":["https://storage.googleapis.com/magma-bucket/airpods-case/alaia_front.jpg","https://storage.googleapis.com/magma-bucket/airpods-case/alaia_side.jpg","https://storage.googleapis.com/magma-bucket/airpods-case/alaia_down.jpg","https://storage.googleapis.com/magma-bucket/airpods-case/alaia_back.jpg"],
-// "releaseDate":"2023-03-12","bestSeller":false,"category":"earbuds","onSale":true,"salePrice":23.99}

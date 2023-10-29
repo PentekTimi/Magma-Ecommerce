@@ -10,9 +10,7 @@ export default function ContactForm() {
 
     async function action(formData) {
         try {
-            // call a function that uses server actions to send the subscription email
             await createContactMessage(formData)
-            // clear input field 
             formRef.current.reset()
             toast.success("Subscription successful!")
         } catch (e) {

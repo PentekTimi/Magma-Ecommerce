@@ -1,6 +1,5 @@
 import Image from "next/legacy/image"
 import Logo from "../common/Logo"
-import AccountIcon from "./AccountIcon"
 import CartIcon from "./CartIcon"
 import NavbarStyles from "./navigation.module.css"
 import { useState } from "react"
@@ -19,7 +18,6 @@ export default function MobileNavbar() {
         setMenu(!menu)
     }
 
-    // animation for mobile dropdown
     const mobileDropdownVariants = {
         initial: {
             scaleY:0,
@@ -41,7 +39,6 @@ export default function MobileNavbar() {
         }
     }
 
-    // animation for the list
     const ulVars = {
         initial: {
             transition: {
@@ -58,7 +55,6 @@ export default function MobileNavbar() {
         }
     }
 
-    // animation for the list items
     const listVariants = {
         initial: {
             y: "30vh",
@@ -76,7 +72,6 @@ export default function MobileNavbar() {
         },
     }
 
-    // animation for search bar inside the mobile dropdown nav
     const searchBarVar = {
         initial: {
             opacity: 0,
@@ -109,9 +104,6 @@ export default function MobileNavbar() {
                     </div>
 
                     <div className={NavbarStyles.flex}>
-                        <div className={NavbarStyles["icon-container-mobile"]}>
-                            <AccountIcon />
-                        </div>
                         <Link href={"/cart"}>
                             <div className={NavbarStyles["icon-container-mobile"]}>
                                 <CartIcon />
@@ -125,7 +117,6 @@ export default function MobileNavbar() {
                 </div>
             </div>
 
-            {/* render the dropdown elements if the menu is true */}
             <AnimatePresence>
                 {menu && 
                 <motion.div variants={mobileDropdownVariants} initial="initial" animate="animate" exit="exit" className={NavbarStyles.hamburgerMenu}>
@@ -139,7 +130,7 @@ export default function MobileNavbar() {
                         </div>
                         {links.map((menuItem, index) => {
                             return (
-                                <div className={NavbarStyles.overflowHidden}>
+                                <div className={NavbarStyles.overflowHidden} key={index}>
                                     <motion.li variants={listVariants} key={index}>
                                         <Link onClick={handleClick} prefetch={false} href={menuItem.route} className={NavbarStyles.mobileLinks}>{menuItem.name}</Link>
                                     </motion.li>

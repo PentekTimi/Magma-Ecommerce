@@ -43,6 +43,8 @@ a {
 
 .logo-image {
   cursor: pointer;
+  font-family: "Josefin Sans";
+  font-weight: 500 ;
 }
 
 .container {

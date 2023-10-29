@@ -15,7 +15,6 @@ export async function saveMessageToDb({data}) {
         }
 
         let result = await collection.insertOne(message)
-        console.log("contcat m saved to db")
        
     } catch (e) {
         console.error(e)

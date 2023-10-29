@@ -2,7 +2,7 @@
 import ProductsPageStyles from "./products.module.css"
 import { useRouter } from 'next/navigation'
 
-export default function SortBy({category, searchParams}) {
+export default function SortBy({category}) {
     const router = useRouter()
     
     const handleSelection = (e) => {
@@ -21,11 +21,11 @@ export default function SortBy({category, searchParams}) {
 
     return (
         <div className={`${ProductsPageStyles.flex} ${ProductsPageStyles.productFilter}`}>
-            <label className={ProductsPageStyles.filterLabel}>Sort by</label>
+            <label htmlFor="sortBy" className={ProductsPageStyles.filterLabel}>Sort by</label>
             <select className={ProductsPageStyles.selectDropdown} onChange={handleSelection} id="sortBy">
-                <option className={ProductsPageStyles.filterOption} value={"recommended"}>Recommended</option>
-                <option className={ProductsPageStyles.filterOption} value={"newFirst"}>Newest first</option>
-                <option className={ProductsPageStyles.filterOption} value={"oldFirst"}>Oldest first</option>
+                <option className={ProductsPageStyles.filterOption} aria-label="recommended" value={"recommended"}>Recommended</option>
+                <option className={ProductsPageStyles.filterOption} aria-label="newest first" value={"newFirst"}>Newest first</option>
+                <option className={ProductsPageStyles.filterOption} aria-label="oldest first" value={"oldFirst"}>Oldest first</option>
             </select>
         </div>
     )

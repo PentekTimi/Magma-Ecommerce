@@ -19,7 +19,6 @@ const fadeInImageVariant = {
         }
     }
 }
-
 const fadeInTextVariant = {
     initial: {
         opacity: 0,
@@ -39,7 +38,7 @@ export default function LandingSection() {
         <div className={homePageStyles.landingWrapper}>
             <div className={homePageStyles.desktopView}>
                 <motion.div variants={fadeInImageVariant} initial="initial" whileInView="animate" className={homePageStyles.landingImgContainer}>
-                    <Image className={homePageStyles.landingImg} src={homePagephoneCase} priority sizes="100vw" alt="green phone case"/>
+                    <Image priority className={homePageStyles.landingImg} src={homePagephoneCase} sizes="100vw" alt="green phone case"/>
                 </motion.div>
                 <motion.div variants={fadeInTextVariant} initial="initial" whileInView="animate" className={homePageStyles.landingCopyWrapper}>
                     <h1 className={homePageStyles.landingHeading}>Immerse your tech in a seamless blend of form and function.</h1>
@@ -49,7 +48,7 @@ export default function LandingSection() {
                         <Link href="#categoryShop" className={`${homePageStyles.flex} ${homePageStyles.categoryLinkContainer}`}>
                             <span className={homePageStyles.categoryLink}>Shop by Category</span>
                             <div className={homePageStyles.arrowContainer}>
-                                <Image src={arrow} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
+                                <Image src={arrow} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="navigation arrow"/>
                             </div>
                         </Link>
                     </div>

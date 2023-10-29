@@ -6,12 +6,9 @@ import toast from "react-hot-toast";
 
 export default function BannerSignUp() {
     const formRef = useRef()
-
     async function action(formData) {
         try {
-            // call a function that uses server actions to send the subscription email
             await createSubscription(formData)
-            // clear input field 
             formRef.current.reset()
             toast.success("Subscription successful!")
         } catch (e) {

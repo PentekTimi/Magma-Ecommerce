@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link";
 import Logo from "../common/Logo";
-import AccountIcon from "./AccountIcon";
 import SearchIcon from "./SearchIcon";
 import CartIcon from "./CartIcon";
 import NavbarStyles from "./navigation.module.css"
@@ -18,8 +17,6 @@ export default function DesktopNavbar() {
 
     const router = useRouter()
     const {totalQty} = useCartContext();
-    
-
     const [hover, setHover] = useState(false)
     const [search, setSearch] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
@@ -31,7 +28,6 @@ export default function DesktopNavbar() {
         }
     }
     const handleLeave = () => {setHover(false)}
-
     const searchClick = () => {setSearch(true)}
     const searchExit = () => {setSearch(false)}
 
@@ -43,7 +39,6 @@ export default function DesktopNavbar() {
     const handleSearch = () => {
         setSearch(false)
     }
-
 
     const searchValueAdded = (event) => {
         let searchInput = document.getElementById("searchQuestion")
@@ -58,7 +53,6 @@ export default function DesktopNavbar() {
             })
         }
 
-    // animation for search dropdown
     const searchVariant = {
         initial: {
             scaleY: 0,
@@ -71,7 +65,6 @@ export default function DesktopNavbar() {
         },
     }
 
-    // animation for search dropdown elements (opacity)
     const searchElementVars = {
         initial: {
             opacity: 0
@@ -85,7 +78,6 @@ export default function DesktopNavbar() {
         }
     }
  
-    // animation for "Shop" menu dropdown
     const shopVariant = {
         initial: {
             height: "0px",
@@ -98,7 +90,6 @@ export default function DesktopNavbar() {
         },
     }
 
-    // animation for "Shop" list items appearance (opacity)
     const shopMenuVars = {
         initial: {
             opacity: 0
@@ -159,9 +150,6 @@ export default function DesktopNavbar() {
                         <div className={NavbarStyles.flex}>
                             <div className={NavbarStyles["icon-container"]} onClick={searchClick}>
                                 <SearchIcon />
-                            </div>
-                            <div className={NavbarStyles["icon-container"]}>
-                                <AccountIcon />
                             </div>
                             <Link href={"/cart"}>
                                 <div className={NavbarStyles["icon-container"]}>

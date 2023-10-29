@@ -9,15 +9,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import items from './bestSellerItems';
 
-// props are destructured- we have access to both active, and initialActive var
 export default function BestSellerCarousel () {
 
     const [imageIndex, setImageIndex] = useState(0);
-
     const PrevArrow = ({onClick}) => {
         return (
             <div onClick={onClick} className={`${homePageStyles.bestSellersArrow} ${homePageStyles.leftArrow}`}>
-                <Image src={arrow}></Image>
+                <Image src={arrow} alt='left navigation arrow'></Image>
             </div>
         )
     }
@@ -25,11 +23,10 @@ export default function BestSellerCarousel () {
     const NextArrow = ({onClick}) => {
         return (
             <div onClick={onClick} className={`${homePageStyles.bestSellersArrow} ${homePageStyles.rightArrow}`}>
-                <Image src={arrow}></Image>
+                <Image src={arrow} alt='right navigation arrow'></Image>
             </div>
         )
     }
-
 
     const settings = {
         infinite: true,
@@ -59,11 +56,11 @@ export default function BestSellerCarousel () {
                     {items.map((item, idx) => {
                         return(
                          <div className={homePageStyles.singleCarouselItem} key={idx}>
-                            <Link href={`/shop/${item.category}/${item.id}`} className={homePageStyles.carouselCopy}>
+                            <Link href={`/shop/${item.category}/${item.id}`} className={homePageStyles.carouselCopy} aria-hidden="false">
                                 <div className={idx === imageIndex ? `${homePageStyles.bestSellersImgContainer} ${homePageStyles.activeImg}`: `${homePageStyles.bestSellersImgContainer}`}>
-                                    <Image priority src={item.src} alt={item.name} layout='fill'/>
+                                    <Image src={item.src} alt={`${item.name} phone case`} layout='fill'/>
                                 </div>
-                                <div className={homePageStyles.carouselItemsCopy}>
+                                <div className={homePageStyles.carouselItemsCopy} aria-hidden="true">
                                     <p className={homePageStyles.carouselItemName}>{item.name}</p>
                                     <p className={homePageStyles.carouselItemPrice}>£{item.price}</p>
                                 </div>

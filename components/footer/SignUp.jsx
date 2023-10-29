@@ -1,5 +1,4 @@
 "use client"
-
 import FooterStyles from "./footer.module.css";
 import createSubscription from "../helpers/createSubscription";
 import { useRef } from "react";
@@ -10,9 +9,7 @@ export default function SignUp() {
 
     async function action(formData) {
         try {
-            // call a function that uses server actions to send the subscription email
             await createSubscription(formData)
-            // clear input field 
             formRef.current.reset()
             toast.success("Subscription successful!")
         } catch (e) {
@@ -20,7 +17,6 @@ export default function SignUp() {
             toast.error("Oops! Something went wrong. Please try again later.")
         }
     }
-
 
     return (
         <div className={FooterStyles.signUp}>

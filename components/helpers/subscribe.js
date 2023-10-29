@@ -12,7 +12,6 @@ export async function saveSubscription({data}) {
         }
 
         let result = await collection.insertOne(email)
-        console.log("contcat m saved to db")
        
     } catch (e) {
         console.error(e)

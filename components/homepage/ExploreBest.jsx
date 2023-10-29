@@ -3,7 +3,6 @@ import BestSellerCarousel from "./BestSellerCarousel";
 import homePageStyles from "./home.module.css";
 
 export default function ExploreBest() {
-
     return (
         <div className={homePageStyles.bestSellers}>
             <div className={homePageStyles.container}>

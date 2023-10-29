@@ -17,16 +17,16 @@ export default function AboutPage() {
                     </div>
                     <div className={AboutStyles.imageGrid}>
                         <div className={`${AboutStyles.imageContainer} ${AboutStyles.item1}`}>
-                            <Image className={AboutStyles.gridImage} src={asset1} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
+                            <Image className={AboutStyles.gridImage} src={asset1} alt="phone case" sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
                         </div>
                         <div className={`${AboutStyles.imageContainer} ${AboutStyles.item2}`}>
-                            <Image className={AboutStyles.gridImage} src={asset2} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
+                            <Image className={AboutStyles.gridImage} src={asset2} alt="phone case" sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
                         </div>
                         <div className={`${AboutStyles.imageContainer} ${AboutStyles.item3}`}>
-                            <Image className={AboutStyles.gridImage} src={asset3} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
+                            <Image className={AboutStyles.gridImage} src={asset3} alt="phone case" sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
                         </div>
                         <div className={`${AboutStyles.imageContainer} ${AboutStyles.item4}`}>
-                            <Image className={AboutStyles.gridImage} src={asset4} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
+                            <Image className={AboutStyles.gridImage} src={asset4} alt="airpods case" sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"></Image>
                         </div>
                     </div>
                 </div>

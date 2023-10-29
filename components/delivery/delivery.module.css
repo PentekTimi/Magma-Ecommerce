@@ -1,5 +1,6 @@
 .container {
     padding: 20px min(10%, 120px);
+    min-height: 450px;
 }
 
 .optionBoxes {
@@ -20,6 +21,7 @@
 
 .active {
     background-color: #E3E9FC;
+    transition: 1s;
 }
 
 .optionTitle {

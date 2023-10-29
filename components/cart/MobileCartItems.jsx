@@ -11,7 +11,6 @@ import { faMinus, faPlus, faTrash } from "@fortawesome/fontawesome-free-solid";
 export default function MobileCartItems({ decreaseQty, increaseQty, removeItem}) {
     
     const {cartItems} = useCartContext()
-    console.log(cartItems)
 
     return (
         <div>
@@ -49,10 +48,8 @@ export default function MobileCartItems({ decreaseQty, increaseQty, removeItem})
                         </div>
 
                     </div>
-
                 )
             })}
-                
         </div>
     )
 }

@@ -39,7 +39,6 @@ export default function Cart() {
 
         setTotalQty(prevValue => prevValue - itemToBeRemoved.productQuantity)
         setTotalPrice(prevValue => prevValue - (itemToBeRemoved.productQuantity * itemToBeRemoved.productPrice))
-        // remove the element from the cart
         cartItems.splice(indexOfItem, 1)
     }
 

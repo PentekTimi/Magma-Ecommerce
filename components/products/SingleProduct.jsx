@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/legacy/image";
 import ProductsPageStyles from "./products.module.css"
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,8 +13,7 @@ export default function SingleProduct({product}) {
 
     const [qty, setQty] = useState(1)
     const [activeImg, setActiveImg] = useState(0)
-    // retrieve global values from context
-    const {cartItems, setCartItems, totalQty, setTotalQty, setTotalPrice} = useCartContext()
+    const {cartItems, setCartItems, setTotalQty, setTotalPrice} = useCartContext()
 
     product = JSON.parse(product)
     product = product[0]
@@ -47,25 +46,15 @@ export default function SingleProduct({product}) {
             break;
     }
 
-    
-
-    // product instance
-    // [{"_id":"646f22f4044458c8600c3583","name":"cleo","description":"ethereal blossom print","price":40,
-    // "images":["https://storage.googleapis.com/magma-bucket/macbook-case/cleo_front.jpg","https://storage.googleapis.com/magma-bucket/macbook-case/cleo_side.jpg","https://storage.googleapis.com/magma-bucket/macbook-case/cleo_closed.jpg","https://storage.googleapis.com/magma-bucket/macbook-case/cleo_layers.jpg"],
-    // "releaseDate":"2023-07-12","bestSeller":true,"category":"laptop","onSale":false,"salePrice":32.99}]
-
     function addToCart () {
         let modelIndexes = []
-        
-        // update totalQuantity for cart icon and totalPrice
+    
         setTotalQty(prevValue => prevValue + qty)
         setTotalPrice(prevValue => prevValue + (qty *(product.onSale ? product.salePrice : product.price)))
         
-        // check if the item added to cart already exists in the cart
         const checkProductsInCart = cartItems.find((cartItem) => cartItem.productID === product._id)
         const selectedModel = (document.querySelector("#model")).value
         
-        // if there are no items in cart, add the first product
         if(!cartItems) {
             setCartItems([{
                 productID: product._id, 
@@ -78,7 +67,7 @@ export default function SingleProduct({product}) {
             }])
 
         } else {
-            // if the product already exists in the cart
+           
             if (checkProductsInCart) {
                 
                 cartItems.forEach((element, index) => {
@@ -86,10 +75,9 @@ export default function SingleProduct({product}) {
                         modelIndexes.push(index)
                     }
                 })
-                // const atIndex = cartItems.indexOf(checkProductsInCart)
+                
                 if (modelIndexes.length > 0) {
                     if (cartItems[modelIndexes[0]].productModel === selectedModel) {
-                        // add the new quantity to previous value
                         cartItems[modelIndexes[0]].productQuantity += qty
                     }
                 } else {
@@ -103,8 +91,6 @@ export default function SingleProduct({product}) {
                         productImage: product.images[0]
                     }])
                 }
-                
-                // if it is a new product added to the cart execute the block below
             } else {
                 setCartItems([...cartItems, {
                     productID: product._id, 

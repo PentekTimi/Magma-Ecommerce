@@ -9,7 +9,6 @@ export default async function Products({category, searchParams, lengthData}) {
     const page = typeof(searchParams.page) === "string" ? Number(searchParams.page) : 1
     let productsData;
 
-    
     let sortBy = {}
     switch (searchParams.sort) {
         case "newFirst":
@@ -33,12 +32,10 @@ export default async function Products({category, searchParams, lengthData}) {
         default:
             categoryInfo = {}
     }
-        
-    // get products data
+
     const initial = await getData(page, 12, categoryInfo, sortBy)
     productsData = JSON.parse(initial)
       
-    // calculate the total page numbers that will fit all the products. based on this number the "next" page control button, and linking will be enabled or disabled
     let pageNumbers = Math.ceil(lengthData / 12)
 
 

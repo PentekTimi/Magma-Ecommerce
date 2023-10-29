@@ -5,7 +5,6 @@ import { BSON } from "mongodb/lib/core";
 
 export default async function ProductPage({params}) {
     
-    // fetch from mongodb just the single data that the customer clicked on based on the product id
     let product = await findProduct(params.category, params.productID)
     
     return (
@@ -18,7 +17,6 @@ export default async function ProductPage({params}) {
 
 export async function findProduct(category, productId) {
 
-    // based on the category param update the collection variable to have the same value as the database collections
     let collection;
     switch (category) {
         case "airpods-cases":
@@ -41,7 +39,6 @@ export async function findProduct(category, productId) {
             break;
     }
 
-    // use mongodb connection and find the product 
     try {
         const client = await clientPromise;
         const db = client.db("magmaData");

@@ -7,7 +7,6 @@ export default async function ProductsPage({params, searchParams}) {
     let apiRoute = ""
     let category = params.category
 
-    // based on the dynamic category parameter update a few variables that will allow to fetch from the correct database
     switch (category) {
         case "airpods-cases":
             receivedData = "earbudcases"
@@ -35,7 +34,6 @@ export default async function ProductsPage({params, searchParams}) {
             break;
     }
 
-    // fetch full category data to find out how many products will be displayed
     let allProducts = await callAPI(apiRoute)
     let lengthData = (JSON.parse(allProducts)).length;
     
@@ -46,7 +44,7 @@ export default async function ProductsPage({params, searchParams}) {
     )
 }
 
-// initialize mongodb connection to correct collection
+
 let client
 let db
 let products
@@ -61,7 +59,6 @@ async function init() {
     }
 }
 
-// fetch data from db given the limit of 12 products, and given the page argument that is changing
 export const getData = async (page = 1, limit = 12, filter, sortBy) => {
     try {
         await init()
@@ -82,15 +79,12 @@ export const getData = async (page = 1, limit = 12, filter, sortBy) => {
     }
 }
 
-// based on the category route fetch data from the correct api point
-// **********currently on localhost
 export const callAPI = (async (arg) => {
     let data = await fetch(`${process.env.APIURL}/api/${arg}`, {method: 'GET'})
     .then (data => data.json())
     return JSON.stringify(data)
 })
 
-// statically generate these routes at build time instead of on-demand
 export function generateStaticParams() {
     return [{ category: 'airpods-cases' }, 
     { category: 'macbook-cases' }, { category: 'phone-cases' }, { category: 'smartwatch-bands' }]

@@ -2,7 +2,6 @@ import SearchIcon from "./SearchIcon"
 import NavbarStyles from "./navigation.module.css"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 
 export default function SearchBar({closeMenu}) {
     const [searchTerm, setSearchTerm] = useState("")

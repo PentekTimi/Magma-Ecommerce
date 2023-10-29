@@ -7,7 +7,6 @@ import ExploreBest from "./ExploreBest";
 import ClientOnly from "../common/ClientOnly";
 
 export default function Home() {
-
     return (
         <div>
             <LandingSection />

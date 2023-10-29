@@ -4,8 +4,6 @@ import homePageStyles from "./home.module.css";
 import BannerSignUp from "./BannerSignUp";
 
 export default function Banner() {
-    
-
     return (
         <div className={homePageStyles.bannerSection}>
             <div className={homePageStyles.bannerDesktopView}>
