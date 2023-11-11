@@ -2,10 +2,12 @@
 <br><br>
 <div align="center">
   <p width="100%">
-    <img width="40%" src="public/MAGMA-white.svg">
+    <img width="30%" src="public/MAGMA-white.svg">
   </p>
 </div>
 <h2 align="center">E-commerce Website built with Next.js 13+<br></h2>
+<video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/7c65088d-ba56-4731-99d3-0d7a9d7e282c"></video>
+
 
 
 
@@ -17,9 +19,9 @@
 - [Tech Stack](#tech-stack)
 - [Features](#features)
 - [Installation and Usage](#installation-and-usage)
+- [Micro-interactions](#micro-interactions)
 - [Future Improvements](#future-improvements)
 - [Sources](#sources)
-
 
 ## Introduction
 
@@ -49,6 +51,20 @@ Other important choices that I took were to create dynamic routes for product pa
 
 ## Tech Stack
 
+<div >
+	<code><img width="40" src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/5f8c622c-c217-4649-b0a9-7e0ee24bd704" alt="Next.js" title="Next.js"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/182884177-d48a8579-2cd0-447a-b9a6-ffc7cb02560e.png" alt="mongoDB" title="mongoDB"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/183911547-990692bc-8411-4878-99a0-43506cdb69cf.png" alt="GCP" title="GCP"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png" alt="HTML" title="HTML"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/192108372-f71d70ac-7ae6-4c0d-8395-51d8870c2ef0.png" alt="Git" title="Git"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/192108374-8da61ba1-99ec-41d7-80b8-fb2f7c0a4948.png" alt="GitHub" title="GitHub"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/121401671-49102800-c959-11eb-9f6f-74d49a5e1774.png" alt="npm" title="npm"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/192108891-d86b6220-e232-423a-bf5f-90903e6887c3.png" alt="Visual Studio Code" title="Visual Studio Code"/></code>
+	<code><img width="40" src="https://user-images.githubusercontent.com/25181517/189715289-df3ee512-6eca-463f-a0f4-c10d94a06b2f.png" alt="Figma" title="Figma"/></code>
+</div>
+<br>
 The project was built using the latest features of Next.js 13 and takes advantage of the following technologies:
 
 - MongoDB - used as the primary database: product details and contact information are stored here
@@ -68,18 +84,26 @@ Other tools used:
 ## Features
 
 - **Pagination**: product listings were divided into separate pages to improve loading times and navigation.
-
-- **Searching**:  the search bar allows for quick and direct access to items of interest without extensive browsing. Users can search by category or product names.
+<video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/1f42fbde-606d-4275-92bd-6b8bf82bac0e"></video>
 
 - **Sortation**: it allows users to organize and view products based on specific criteria such as recommended, newest models, or older models. This functionality enables customers to quickly arrange products to suit their needs and find the most relevant items efficiently.
 
+- **Searching**:  the search bar allows for quick and direct access to items of interest without extensive browsing. Users can search by category or product names.
+<video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/c64dd9e1-63cd-4c51-8ab1-8030d6091718"></video>
+
 - **Cart functionalities**: users can add or remove products from their cart and review the chosen items before proceeding to checkout. Features include the ability to adjust quantities, delete products, estimate shipping costs, and, initiate the checkout process.
+<video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/b99cf091-6d4f-4b1f-8543-5d1c82b09aa0"></video>
 
 - **Newsletter sign-up**: this feature enables visitors to subscribe to the company's newsletter. The emails collected are sent to the MongoDB database. After submitting the email, and the validation checks for the email provided pass, a successful React Toast pop-up appears. If something goes wrong an error pop-up will be visible.
+<video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/a4dff3a8-0bd3-4c4d-83f2-638e1b2debf9"></video>
 
 - **Contact form**: this form collects user queries, which are then sent to the MongoDB database.
 
 - **Coupon Code Addition at Stripe Checkout**: during the Stripe checkout process customers can enter valid coupon codes which then will recalculate the total cost and show the breakdown of the total.
+<video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/27601f3f-45ac-474f-9658-bc59db513a2e"></video>
+
+
+
 
 ## Installation and Usage
 
@@ -156,6 +180,17 @@ email: string
 
 ```
 
+## Micro-interactions
+<table>
+  <tr>
+    <td valign="top"><video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/d447e622-60b9-4ea2-8229-b5a09cf8aa27"/></td>
+    <td valign="top"><video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/98bf048a-4f32-49ab-b6f4-4fb9f6b2ac04"/></td>
+  </tr>
+  <tr>
+    <td valign="top"><video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/845a7a4d-953c-410e-b71b-069022a2008c"/></td>
+    <td valign="top"><video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/9a5d4677-a7fb-4f54-9925-cecb8a2da640"/></td>
+  </tr>
+</table>
 
 ## Future Improvements
 
