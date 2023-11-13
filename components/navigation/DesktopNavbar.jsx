@@ -123,7 +123,7 @@ export default function DesktopNavbar() {
                                 <div className={NavbarStyles.flex} onMouseEnter={handleHover} onMouseLeave={handleLeave}>
                                     <p className={`${NavbarStyles["links"]} ${NavbarStyles["shop-link"]}`}>Shop</p>
                                     <div className={NavbarStyles.arrowContainer}>
-                                        <Image src={arrow} className={NavbarStyles.arrow} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
+                                        <Image src={arrow} alt="arrow" className={NavbarStyles.arrow} sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
                                     </div>
                                 </div>
                             </li>

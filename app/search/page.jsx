@@ -36,7 +36,7 @@ export default async function SearchResult({searchParams}) {
                 <div className={ProductsPageStyles.container}>
                     <div className={ProductsPageStyles.productInfo}>
                         <div className={`${ProductsPageStyles.categoryInfo}`}>
-                            <p className={ProductsPageStyles.searchTermDisplay}>Products found for "{searchValue}"</p>
+                            <p className={ProductsPageStyles.searchTermDisplay}>Products found for &quot;{searchValue}&quot;</p>
                             <p className={ProductsPageStyles.productAmount}>{foundItems.length} {foundItems.length > 1 ? "designs" : "design"} found</p>
                         </div>
                     </div>

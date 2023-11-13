@@ -13,13 +13,13 @@ export default function Terms () {
             <div className={TermStyles.legalContent}>
                 <div className={TermStyles.legalSections}>
                     <h3 className={TermStyles.legalSectionSubtitle}>AGREEMENT TO OUR LEGAL TERMS</h3>
-                    <p>We are MAGMA LLC, doing business as MGM LLC (Company', 'we', 'us', or 'our'), a company registered in the United Kingdom at 38 Park Avenue, London E96 2TM.</p>
-                    <p>We operate the website (the 'Site'), as well as any other related products and services that refer or link to these legal terms (the 'Legal Terms') (collectively, the 'Services').You can contact us by email at contact@magma.com or by mail to 38 Park Avenue, London E96 2TM, United Kingdom.</p>
-                    <p>These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ('you'), and MAGMA LLC, concerning your access to and use
+                    <p>We are MAGMA LLC, doing business as MGM LLC (&apos;Company&apos;, &apos;we&apos;, &apos;us&apos;, or &apos;our&apos;), a company registered in the United Kingdom at 38 Park Avenue, London E96 2TM.</p>
+                    <p>We operate the website (the &apos;Site&apos;), as well as any other related products and services that refer or link to these legal terms (the &apos;Legal Terms&apos;) (collectively, the &apos;Services&apos;).You can contact us by email at contact@magma.com or by mail to 38 Park Avenue, London E96 2TM, United Kingdom.</p>
+                    <p>These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&apos;you&apos;), and MAGMA LLC, concerning your access to and use
                         of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF
                         THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
                     <p>Supplemental terms and conditions or documents that may be posted on the Services from time to time are hereby expressly incorporated herein by reference. We reserve the right, in
-                        our sole discretion, to make changes or modifications to these Legal Terms from time to time. We will alert you about any changes by updating the Last updated' date of these Legal
+                        our sole discretion, to make changes or modifications to these Legal Terms from time to time. We will alert you about any changes by updating the Last updated&apos; date of these Legal
                         Terms, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Legal Terms to stay informed of updates. You will be
                         subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Legal Terms by your continued use of the Services after the date such
                         revised Legal Terms are posted.</p>
@@ -38,13 +38,13 @@ export default function Terms () {
                     <h3>2. INTELLECTUAL PROPERTY RIGHTS</h3>
                     <p>
                     We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text,
-                    photographs, and graphics in the Services (collectively, the 'Content'), as well as the trademarks, service marks, and logos contained therein (the 'Marks').</p>
+                    photographs, and graphics in the Services (collectively, the &apos;Content&apos;), as well as the trademarks, service marks, and logos contained therein (the &apos;Marks&apos;).</p>
                     <p>
                     Our Content and Marks are protected by copyright and trademark laws (and various other intellectual property rights and unfair competition laws) and treaties in the United States and
                     around the world.</p>
-                    <p>The Content and Marks are provided in or through the Services 'AS IS' for your personal, non-commercial use only.</p>
+                    <p>The Content and Marks are provided in or through the Services &apos;AS IS&apos; for your personal, non-commercial use only.</p>
                     <p>
-                    Subject to your compliance with these Legal Terms, including the 'PROHIBITED ACTIVITIES' section below, we grant you a non-exclusive, non-transferable, revocable licence to:
+                    Subject to your compliance with these Legal Terms, including the &apos;PROHIBITED ACTIVITIES&apos; section below, we grant you a non-exclusive, non-transferable, revocable licence to:
                     ▪ access the Services; and
                     ▪ download or print a copy of any portion of the Content to which you have properly gained access.
                     solely for your personal, non-commercial use.

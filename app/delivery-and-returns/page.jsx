@@ -45,7 +45,7 @@ export default function DeliveryAndReturns() {
                 </div> 
                 : 
                 <div>
-                    <p className={DeliveryStyles.info}>We are a customer-first company, and we strive to provide the best quality products with a seamless experience for you. Still, sometimes things happen, so if there's anything wrong with the item you have received, we will do our best to fix it and be satisfied.</p>
+                    <p className={DeliveryStyles.info}>We are a customer-first company, and we strive to provide the best quality products with a seamless experience for you. Still, sometimes things happen, so if there&apos;s anything wrong with the item you have received, we will do our best to fix it and be satisfied.</p>
                     <p className={DeliveryStyles.info}>If you want to return the item, please contact us within 30 days of receiving the order at hello@magma.com. If you have discovered our fault, please take pictures of the defected, or wrong case sent to you and attach them to the initial email with an explanation.</p>
                     <br></br>
                     <p className={DeliveryStyles.info}>Please consider that all the shipping expenses for returning the item remain the responsibility of the customer.</p>
