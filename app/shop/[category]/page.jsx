@@ -10,31 +10,31 @@ export default async function ProductsPage({params, searchParams}) {
     switch (category) {
         case "airpods-cases":
             receivedData = "earbudcases"
-            apiRoute = "earbuds"
+            apiRoute = {}
             break;
         case "macbook-cases":
             receivedData = "laptopcases"
-            apiRoute = "laptops"
+            apiRoute = {}
             break;
         case "phone-cases":
             receivedData = "phonecases"
-            apiRoute = "phones"
+            apiRoute = {}
             break;
         case "smartwatch-bands":
             receivedData = "watchbands"
-            apiRoute = "watches"
+            apiRoute = {}
             break;
         case "sale":
             receivedData = "allProducts"
-            apiRoute = "discounted"
+            apiRoute = {onSale: true}
             break;
         case "new-in":
             receivedData = "allProducts"
-            apiRoute = "new"
+            apiRoute = {bestSeller: true}
             break;
     }
 
-    let allProducts = await callAPI(apiRoute)
+    let allProducts = await callAPI(receivedData, apiRoute)
     let lengthData = (JSON.parse(allProducts)).length;
     
     return (
@@ -79,10 +79,19 @@ export const getData = async (page = 1, limit = 12, filter, sortBy) => {
     }
 }
 
-export const callAPI = (async (arg) => {
-    let data = await fetch(`${process.env.APIURL}/api/${arg}`, {method: 'GET'})
-    .then (data => data.json())
-    return JSON.stringify(data)
+export const callAPI = (async (receivedData, apiRoute) => {
+    try {
+        const client = await clientPromise;
+        const db = client.db("magmaData");
+        
+        const result = await db
+        .collection(receivedData)
+        .find(apiRoute)
+        .toArray();
+        return JSON.stringify(result)
+    } catch (error) {
+        return {error}
+    }
 })
 
 export function generateStaticParams() {
