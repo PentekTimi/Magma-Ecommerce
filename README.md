@@ -6,6 +6,7 @@
   </p>
 </div>
 <h2 align="center">E-commerce Website built with Next.js 13+<br></h2>
+<p align="center">Deployed website: <a href="https://magma-ecommerce.vercel.app/" target="_blank">MAGMA</a></p>
 <video src="https://github.com/PentekTimi/Magma-Ecommerce/assets/107998811/7c65088d-ba56-4731-99d3-0d7a9d7e282c"></video>
 
 
